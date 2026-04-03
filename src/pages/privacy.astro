@@ -3,12 +3,19 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SiteHeader from "../components/SiteHeader.astro";
 import SiteFooter from "../components/SiteFooter.astro";
+import { buildInnerPageJsonLd } from "../lib/jsonLd";
+
+const title = "Privacy | Local Service Rocket";
+const description = "How Local Service Rocket handles email signups, the playbook lead magnet, and related data.";
+const jsonLd = buildInnerPageJsonLd({
+  pathname: Astro.url.pathname,
+  pageType: "WebPage",
+  title,
+  description,
+});
 ---
 
-<BaseLayout
-  title="Privacy | Local Service Rocket"
-  description="How Local Service Rocket handles email signups, the playbook lead magnet, and related data."
->
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
   <SiteHeader slot="header" />
 
   <main class="border-t border-white/5 bg-surface-container-lowest px-6 py-16 md:px-8 md:py-24">

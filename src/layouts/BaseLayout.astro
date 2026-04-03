@@ -1,28 +1,63 @@
 ---
 // Root HTML shell: fonts, global CSS, optional full-page spark layer for case studies.
+// Technical SEO: canonical, Open Graph, Twitter Card, optional JSON-LD (see docs/SITE-STRUCTURE-AND-SEO-GUIDE.md).
 import "../styles/global.css";
+import {
+  BUSINESS_DESCRIPTION,
+  DEFAULT_OG_IMAGE_PATH,
+  SITE_URL,
+  absoluteUrl,
+} from "../data/site";
 
 interface Props {
   title: string;
   description?: string;
   mainClass?: string;
   pageSparks?: boolean;
+  /** Serialized JSON-LD (`@context` + `@graph`); one script per page */
+  jsonLd?: string;
+  /** Path for og:image / twitter:image (site-relative) */
+  ogImagePath?: string;
+  openGraphType?: "website" | "article";
+  robotsNoindex?: boolean;
 }
 
 const {
   title,
-  description = "Local Service Rocket — aerospace-grade growth engineering for local service brands.",
+  description = BUSINESS_DESCRIPTION,
   mainClass = "pt-24 md:pt-28",
   pageSparks = false,
+  jsonLd,
+  ogImagePath = DEFAULT_OG_IMAGE_PATH,
+  openGraphType = "website",
+  robotsNoindex = false,
 } = Astro.props;
+
+const siteOrigin = (import.meta.env.SITE as string | undefined) || SITE_URL;
+const canonicalURL = new URL(Astro.url.pathname, siteOrigin).href;
+const ogImage = absoluteUrl(ogImagePath);
 ---
 
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en-US" class="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    {robotsNoindex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="canonical" href={canonicalURL} />
+    <meta property="og:type" content={openGraphType} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Local Service Rocket" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <link rel="icon" type="image/webp" href="/logo-no-text.webp" />
     <link rel="icon" type="image/png" href="/logo-no-text.png" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -36,6 +71,7 @@ const {
       rel="stylesheet"
     />
     <title>{title}</title>
+    {jsonLd && <script type="application/ld+json" set:html={jsonLd} />}
   </head>
   <body class="overflow-x-hidden font-body selection:bg-primary-container selection:text-white">
     {

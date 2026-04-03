@@ -4,9 +4,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import SiteHeader from "../components/SiteHeader.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 import { SKOOL_URL } from "../data/site";
+import { buildInnerPageJsonLd } from "../lib/jsonLd";
 
-const placeholderWide =
-  "https://placehold.co/1200x720/0f0f0f/ff571a/png?text=AI+marketing+workspace&font=roboto";
+/** Hero (see `scripts/optimize-public-rasters.mjs` — source `services-hero-image.png`). */
+const servicesHeroImg = "/services-hero.webp";
 
 /** Per-service phase rows use the same icons as the global process for visual consistency. */
 const phaseRowDefs = [
@@ -111,12 +112,19 @@ const serviceOffers = [
     },
   },
 ];
+
+const title = "AI Marketing Services — Websites, SEO & Ads | Local Service Rocket";
+const description =
+  "Custom websites with branding, local SEO, and AI-assisted ads. Monthly retainers plus scoped one-time setup for SEO and ads. Same four-phase process for every client.";
+const jsonLd = buildInnerPageJsonLd({
+  pathname: Astro.url.pathname,
+  pageType: "WebPage",
+  title,
+  description,
+});
 ---
 
-<BaseLayout
-  title="AI Marketing Services — Websites, SEO & Ads | Local Service Rocket"
-  description="Custom websites with branding, local SEO, and AI-assisted ads. Monthly retainers plus scoped one-time setup for SEO and ads. Same four-phase process for every client."
->
+<BaseLayout title={title} description={description} jsonLd={jsonLd} ogImagePath={servicesHeroImg}>
   <SiteHeader slot="header" />
   <header class="relative overflow-hidden px-6 pb-16 pt-8 md:px-8 md:pb-20">
     <div class="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2 lg:items-center">
@@ -162,11 +170,11 @@ const serviceOffers = [
         class="relative aspect-[4/3] overflow-hidden border-2 border-white/10 brutal-border lg:aspect-auto lg:min-h-[320px]"
       >
         <img
-          alt="Placeholder — AI marketing and local business growth workspace"
+          alt="AI marketing workspace: strategy, local search, and growth systems for service businesses"
           class="h-full w-full object-cover opacity-90"
-          src={placeholderWide}
-          width="1200"
-          height="720"
+          src={servicesHeroImg}
+          width="1350"
+          height="900"
           loading="eager"
         />
         <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-deep/80 to-transparent"></div>

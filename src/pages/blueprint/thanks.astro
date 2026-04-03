@@ -4,6 +4,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import SiteHeader from "../../components/SiteHeader.astro";
 import SiteFooter from "../../components/SiteFooter.astro";
 import { SKOOL_URL } from "../../data/site";
+import { buildInnerPageJsonLd } from "../../lib/jsonLd";
 
 const highlights = [
   {
@@ -17,12 +18,19 @@ const highlights = [
     body: "If you'd rather we run the Strategy → Research → Setup → Management loop for you, we build sites, run SEO, and manage ads for local SMEs across NZ, AU, and the US.",
   },
 ];
+
+const title = "You're In — Next Steps | Local Service Rocket";
+const description =
+  "Check your inbox for the SEO playbook. Join our free Skool community or explore AI marketing services — websites, SEO, and ads.";
+const jsonLd = buildInnerPageJsonLd({
+  pathname: Astro.url.pathname,
+  pageType: "WebPage",
+  title,
+  description,
+});
 ---
 
-<BaseLayout
-  title="You're In — Next Steps | Local Service Rocket"
-  description="Check your inbox for the SEO playbook. Join our free Skool community or explore AI marketing services — websites, SEO, and ads."
->
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
   <SiteHeader slot="header" />
 
   <main class="relative border-t border-white/5 bg-surface-container-lowest px-6 py-16 md:px-8 md:py-24">

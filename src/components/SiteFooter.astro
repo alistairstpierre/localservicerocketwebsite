@@ -1,6 +1,16 @@
 ---
-// Shared footer: legal + quick links aligned to Stitch propulsion footer pattern.
+// Shared footer: legal + quick links aligned to Stitch propulsion footer pattern; NAP matches schema (`src/data/site.ts`).
+import {
+  BUSINESS_ADDRESS,
+  BUSINESS_MAPS_URL,
+  BUSINESS_PHONE_DISPLAY,
+  BUSINESS_PHONE_E164,
+} from "../data/site";
+
 const year = new Date().getFullYear();
+const addressLine1 = BUSINESS_ADDRESS.streetAddress;
+const addressLine2 = `${BUSINESS_ADDRESS.addressLocality} ${BUSINESS_ADDRESS.postalCode}, New Zealand`;
+const telHref = `tel:${BUSINESS_PHONE_E164}`;
 ---
 
 <footer class="w-full border-t border-neutral-800/50 bg-neutral-950">
@@ -11,11 +21,11 @@ const year = new Date().getFullYear();
         class="inline-flex max-w-full items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-container"
       >
         <img
-          src="/logo-no-text.png"
+          src="/logo-no-text.webp"
           alt=""
           class="h-11 w-11 shrink-0 object-contain opacity-95 md:h-12 md:w-12"
-          width="48"
-          height="48"
+          width="192"
+          height="196"
           decoding="async"
           aria-hidden="true"
         />
@@ -27,6 +37,32 @@ const year = new Date().getFullYear();
         High-performance propulsion for local service operators. Engineered for scale. Built for
         dominance.
       </p>
+      <div class="max-w-sm space-y-2 font-body text-xs leading-relaxed text-neutral-500">
+        <p class="font-label uppercase tracking-widest text-neutral-600">Registered office</p>
+        <p>
+          {addressLine1}
+          <br />
+          {addressLine2}
+        </p>
+        <p>
+          <a class="text-primary-container hover:text-primary-fixed-dim" href={telHref}>
+            {BUSINESS_PHONE_DISPLAY}
+          </a>
+          <span class="mx-2 text-neutral-700">·</span>
+          <a
+            class="text-primary-container hover:text-primary-fixed-dim"
+            href={BUSINESS_MAPS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Directions
+          </a>
+        </p>
+        <p class="text-[11px] normal-case tracking-normal text-neutral-600">
+          We work remotely with clients, mostly in the United States, plus Australia and New Zealand — same
+          systems everywhere.
+        </p>
+      </div>
       <p class="font-body text-xs uppercase tracking-widest text-neutral-600">
         © {year} Local Service Rocket. All systems go.
       </p>

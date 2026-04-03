@@ -5,6 +5,10 @@ import { SKOOL_URL as skoolUrl } from "../../data/site";
 const heroImg =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuAQv1fZDDd7_grQCLCY--PteZHSaxVB0dNf2cqYX5PRz_GIGQlAkjIdTX_Umi9049qysAWZAFcbf3iydWO5V6K53NJ6HFfDtou3za22CuZRPoO-jiHEqW4JaEGpDy1V1Dy1QFfFzo2aMflNDeKx3peAPwSOt7Glq-qtokAc8WOe8PKwoXXiSGWHkIdeTxesT2FrOH2jgv3KWYQDYUS8o4zL6nScSym9yinWwwJf141GhngR5jA7HMCfUmR88LydGceThrhSvgQv1RYh";
 
+/** Case-study hero shots (match case-studies.astro + scripts/optimize-case-study-trucks.mjs) */
+const dryDuckTruckImg = "/dry-duck-truck.webp";
+const coastalTruckImg = "/coastal-current-truck.webp";
+
 const proofBullets = [
   "Dry Duck Basements ranked top 3 in their local market within 30 days of launch",
   "An Iowa electrician went from $60k to $250k a month using this system",
@@ -339,56 +343,86 @@ const services = [
     <!-- Featured cards -->
     <div class="mb-8 grid grid-cols-1 gap-6 reveal lg:grid-cols-2">
       <!-- Dry Duck — primary proof -->
-      <div class="mission-panel brutal-border panel-texture group flex flex-col justify-between p-8 transition-all hover:border-primary-container md:p-10">
-        <div>
-          <span class="mb-4 inline-block bg-primary-container/20 px-3 py-1 text-[10px] font-black uppercase tracking-widest text-primary-container">
-            Website + AI SEO — Des Moines, Iowa
-          </span>
-          <h3 class="mb-4 font-headline text-2xl font-black leading-snug tracking-tighter text-white md:text-3xl">
-            Top 3 in a 10-mile radius — within
-            <span class="text-secondary-container">30 days</span> of launch
-          </h3>
-          <p class="mb-6 text-sm leading-relaxed text-neutral-400 md:text-base">
-            Dry Duck Basements launched with a website built and optimised using AI. Ranking in the top 3
-            for local waterproofing searches within one month. Bringing in real enquiries from Des Moines
-            homeowners.
-          </p>
+      <div
+        class="mission-panel brutal-border panel-texture group flex flex-col justify-between overflow-hidden transition-all hover:border-primary-container"
+      >
+        <div class="relative h-44 md:h-52">
+          <img
+            alt="Dry Duck Basements — service truck, Des Moines Iowa"
+            class="h-full w-full object-cover opacity-95"
+            src={dryDuckTruckImg}
+            width="1200"
+            height="412"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 to-transparent"></div>
         </div>
-        <a
-          href="https://dryduckbasements.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 font-headline text-sm font-bold uppercase tracking-widest text-primary transition-colors hover:text-white"
-        >
-          dryduckbasements.com
-          <span class="material-symbols-outlined text-base">arrow_outward</span>
-        </a>
+        <div class="flex flex-grow flex-col justify-between p-8 md:p-10">
+          <div>
+            <span class="mb-4 inline-block bg-primary-container/20 px-3 py-1 text-[10px] font-black uppercase tracking-widest text-primary-container">
+              Website + AI SEO — Des Moines, Iowa
+            </span>
+            <h3 class="mb-4 font-headline text-2xl font-black leading-snug tracking-tighter text-white md:text-3xl">
+              Top 3 in a 10-mile radius — within
+              <span class="text-secondary-container">30 days</span> of launch
+            </h3>
+            <p class="mb-6 text-sm leading-relaxed text-neutral-400 md:text-base">
+              Dry Duck Basements launched with a website built and optimised using AI. Ranking in the top
+              3 for local waterproofing searches within one month. Bringing in real enquiries from Des Moines
+              homeowners.
+            </p>
+          </div>
+          <a
+            href="https://dryduckbasements.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 font-headline text-sm font-bold uppercase tracking-widest text-primary transition-colors hover:text-white"
+          >
+            dryduckbasements.com
+            <span class="material-symbols-outlined text-base">arrow_outward</span>
+          </a>
+        </div>
       </div>
 
       <!-- Coastal Current — portfolio -->
-      <div class="mission-panel brutal-border panel-texture group flex flex-col justify-between p-8 transition-all hover:border-primary-container md:p-10">
-        <div>
-          <span class="mb-4 inline-block bg-white/10 px-3 py-1 text-[10px] font-black uppercase tracking-widest text-white">
-            Website Build — South Orange County, CA
-          </span>
-          <h3 class="mb-4 font-headline text-2xl font-black leading-snug tracking-tighter text-white md:text-3xl">
-            A complete electrician website — built with AI, ready to rank
-          </h3>
-          <p class="mb-6 text-sm leading-relaxed text-neutral-400 md:text-base">
-            Coastal Current Electrician. Full site built using AI — service pages, location pages,
-            structured for local SEO from day one. Launching soon. We'll publish ranking results when
-            it's live.
-          </p>
+      <div
+        class="mission-panel brutal-border panel-texture group flex flex-col justify-between overflow-hidden transition-all hover:border-primary-container"
+      >
+        <div class="relative h-44 md:h-52">
+          <img
+            alt="Coastal Current Electrician — branded service truck, South Orange County CA"
+            class="h-full w-full object-cover opacity-95"
+            src={coastalTruckImg}
+            width="1024"
+            height="375"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 to-transparent"></div>
         </div>
-        <a
-          href="https://coastal-current-website.vercel.app"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 font-headline text-sm font-bold uppercase tracking-widest text-primary transition-colors hover:text-white"
-        >
-          Preview the site
-          <span class="material-symbols-outlined text-base">arrow_outward</span>
-        </a>
+        <div class="flex flex-grow flex-col justify-between p-8 md:p-10">
+          <div>
+            <span class="mb-4 inline-block bg-white/10 px-3 py-1 text-[10px] font-black uppercase tracking-widest text-white">
+              Website Build — South Orange County, CA
+            </span>
+            <h3 class="mb-4 font-headline text-2xl font-black leading-snug tracking-tighter text-white md:text-3xl">
+              A complete electrician website — built with AI, ready to rank
+            </h3>
+            <p class="mb-6 text-sm leading-relaxed text-neutral-400 md:text-base">
+              Coastal Current Electrician. Full site built using AI — service pages, location pages,
+              structured for local SEO from day one. Launching soon. We'll publish ranking results when
+              it's live.
+            </p>
+          </div>
+          <a
+            href="https://coastal-current-website.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 font-headline text-sm font-bold uppercase tracking-widest text-primary transition-colors hover:text-white"
+          >
+            Preview the site
+            <span class="material-symbols-outlined text-base">arrow_outward</span>
+          </a>
+        </div>
       </div>
     </div>
 

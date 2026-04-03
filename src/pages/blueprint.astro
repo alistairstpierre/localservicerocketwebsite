@@ -4,6 +4,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import SiteHeader from "../components/SiteHeader.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 import { SKOOL_URL, BLUEPRINT_THANKS_PATH, KIT_PLAYBOOK_FORM_ACTION } from "../data/site";
+import { buildInnerPageJsonLd } from "../lib/jsonLd";
 
 const formAction = KIT_PLAYBOOK_FORM_ACTION ?? "#";
 const useKitBackend = Boolean(KIT_PLAYBOOK_FORM_ACTION);
@@ -33,12 +34,19 @@ const topics = [
     body: "Google and Meta setups where AI assists targeting and creative — you still own the account.",
   },
 ];
+
+const title = "Free SEO Playbook — AI Prompt for Full On-Page SEO | Local Service Rocket";
+const description =
+  "Get our SEO secret sauce: a large playbook with an AI prompt to upgrade headings, meta titles and descriptions, schema, image alt text, and more — free by email.";
+const jsonLd = buildInnerPageJsonLd({
+  pathname: Astro.url.pathname,
+  pageType: "WebPage",
+  title,
+  description,
+});
 ---
 
-<BaseLayout
-  title="Free SEO Playbook — AI Prompt for Full On-Page SEO | Local Service Rocket"
-  description="Get our SEO secret sauce: a large playbook with an AI prompt to upgrade headings, meta titles and descriptions, schema, image alt text, and more — free by email."
->
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
   <SiteHeader slot="header" />
 
   <main class="relative flex min-h-[calc(100vh-5rem)] flex-col items-center overflow-hidden px-4 pt-8 pb-16">

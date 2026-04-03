@@ -1,7 +1,7 @@
 ---
 import { SKOOL_URL as skoolUrl } from "../data/site";
 
-// Site navigation: /logo-no-text.png on small screens, full /lsr-logo.png from md up.
+// Site navigation: WebP wordmarks from `scripts/optimize-public-rasters.mjs` (PNG sources retained in /public).
 const pathname = Astro.url.pathname;
 const links = [
   { href: "/services", label: "AI Services", icon: null, external: false },
@@ -24,20 +24,20 @@ const active = (href: string) =>
     >
       <span class="sr-only md:hidden">Local Service Rocket</span>
       <img
-        src="/logo-no-text.png"
+        src="/logo-no-text.webp"
         alt=""
         class="h-12 w-12 object-contain object-center drop-shadow-[0_0_8px_rgba(255,87,26,0.4)] md:hidden"
-        width="48"
-        height="48"
+        width="192"
+        height="196"
         decoding="async"
         aria-hidden="true"
       />
       <img
-        src="/lsr-logo.png"
+        src="/lsr-logo.webp"
         alt="Local Service Rocket"
         class="hidden h-14 w-auto max-h-16 max-w-[20rem] object-contain object-left drop-shadow-[0_0_10px_rgba(255,87,26,0.35)] md:block"
-        width="320"
-        height="56"
+        width="720"
+        height="184"
         decoding="async"
       />
     </a>

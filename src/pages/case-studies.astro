@@ -4,12 +4,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import SiteHeader from "../components/SiteHeader.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 import { SKOOL_URL } from "../data/site";
+import { buildInnerPageJsonLd } from "../lib/jsonLd";
 
-const dryDuckImg =
-  "https://placehold.co/1400x900/0f0f0f/ff571a/png?text=Dry+Duck+Basements+%E2%80%94+Des+Moines&font=roboto";
+const dryDuckImg = "/dry-duck-truck.webp";
 
-const coastalImg =
-  "https://placehold.co/1400x900/0f0f0f/ad897e/png?text=Coastal+Current+%E2%80%94+portfolio&font=roboto";
+const coastalImg = "/coastal-current-truck.webp";
 
 const clients = [
   {
@@ -48,13 +47,19 @@ const clients = [
     statLabel: "To record month",
   },
 ];
+
+const title = "Client Results & Case Studies | Local Service Rocket";
+const description =
+  "Real electricians and trade businesses: revenue growth, locations added, calls per week, and AI-built sites ranking in market. NZ, AU, USA.";
+const jsonLd = buildInnerPageJsonLd({
+  pathname: Astro.url.pathname,
+  pageType: "WebPage",
+  title,
+  description,
+});
 ---
 
-<BaseLayout
-  title="Client Results & Case Studies | Local Service Rocket"
-  description="Real electricians and trade businesses: revenue growth, locations added, calls per week, and AI-built sites ranking in market. NZ, AU, USA."
-  pageSparks={true}
->
+<BaseLayout title={title} description={description} jsonLd={jsonLd} pageSparks={true} ogImagePath={dryDuckImg}>
   <SiteHeader slot="header" />
 
   <main class="relative z-10 pb-20 pt-8">
@@ -118,8 +123,8 @@ const clients = [
               class="h-full w-full object-cover opacity-90"
               alt="Dry Duck Basements — basement waterproofing Des Moines Iowa website and local SEO"
               src={dryDuckImg}
-              width="1400"
-              height="900"
+              width="1200"
+              height="412"
             />
             <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
             <div class="absolute bottom-4 left-4 right-4">
@@ -154,10 +159,10 @@ const clients = [
           <div class="relative h-56 shrink-0 md:h-64">
             <img
               class="h-full w-full object-cover opacity-90"
-              alt="Placeholder — Coastal Current Electrician website build portfolio preview"
+              alt="Coastal Current Electrician — branded service truck, South Orange County CA"
               src={coastalImg}
-              width="1400"
-              height="900"
+              width="1024"
+              height="375"
             />
             <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
             <div class="absolute bottom-4 left-4 right-4">

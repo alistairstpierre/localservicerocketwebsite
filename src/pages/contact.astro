@@ -3,16 +3,35 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SiteHeader from "../components/SiteHeader.astro";
 import SiteFooter from "../components/SiteFooter.astro";
-import { SKOOL_URL, STRATEGY_CALL_BOOKING_URL } from "../data/site";
+import {
+  BUSINESS_ADDRESS,
+  BUSINESS_MAPS_URL,
+  BUSINESS_PHONE_DISPLAY,
+  BUSINESS_PHONE_E164,
+  SKOOL_URL,
+  STRATEGY_CALL_BOOKING_URL,
+} from "../data/site";
+import { buildInnerPageJsonLd } from "../lib/jsonLd";
 
 const mapPlaceholder =
   "https://placehold.co/960x540/141414/ff571a/png?text=NZ+%C2%B7+AU+%C2%B7+USA&font=roboto";
+
+const title = "Book a Free Strategy Call | Local Service Rocket";
+const description =
+  "Free 30-minute call. No credit card. No pitch. Tell us what's working and what isn't — we'll map the fastest path to page 1 for your business.";
+const jsonLd = buildInnerPageJsonLd({
+  pathname: Astro.url.pathname,
+  pageType: "ContactPage",
+  title,
+  description,
+});
+
+const addressLine1 = BUSINESS_ADDRESS.streetAddress;
+const addressLine2 = `${BUSINESS_ADDRESS.addressLocality} ${BUSINESS_ADDRESS.postalCode}, New Zealand`;
+const telHref = `tel:${BUSINESS_PHONE_E164.replace(/\s/g, "")}`;
 ---
 
-<BaseLayout
-  title="Book a Free Strategy Call | Local Service Rocket"
-  description="Free 30-minute call. No credit card. No pitch. Tell us what's working and what isn't — we'll map the fastest path to page 1 for your business."
->
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
   <SiteHeader slot="header" />
 
   <div class="mx-auto max-w-7xl px-6 pb-24 pt-8 md:px-12">
@@ -165,9 +184,37 @@ const mapPlaceholder =
             <h3 class="font-headline font-bold uppercase tracking-tight text-primary">Where we work</h3>
             <p class="mt-2 text-sm text-on-surface-variant">
               New Zealand · Australia · United States — partnered with 10 SMEs today and applying what we
-              learn back into the playbooks.
+              learn back into the playbooks. Most of our clients are in the USA; we work remotely across
+              time zones.
             </p>
           </div>
+        </div>
+
+        <div class="border border-outline-variant bg-surface-container p-6">
+          <h4 class="font-label text-[10px] uppercase tracking-[0.3em] text-neutral-500">
+            Registered office
+          </h4>
+          <p class="mt-3 text-sm leading-relaxed text-on-surface-variant">
+            <span class="text-on-surface">{addressLine1}</span>
+            <br />
+            {addressLine2}
+          </p>
+          <a
+            href={BUSINESS_MAPS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-2 inline-flex items-center gap-1 text-xs font-headline font-bold uppercase tracking-wider text-primary-container hover:text-primary-fixed-dim"
+          >
+            Directions
+            <span class="material-symbols-outlined text-base icon-outline">open_in_new</span>
+          </a>
+          <p class="mt-4 font-label text-[10px] uppercase tracking-[0.3em] text-neutral-500">Phone</p>
+          <a
+            href={telHref}
+            class="mt-1 block font-headline text-lg font-bold text-primary-fixed-dim hover:text-primary-container"
+          >
+            {BUSINESS_PHONE_DISPLAY}
+          </a>
         </div>
 
         <div class="bg-surface-container-highest p-6">
