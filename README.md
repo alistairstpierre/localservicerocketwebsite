@@ -49,6 +49,6 @@ npm run preview
 | `src/pages/privacy.astro` | `/privacy` — email/marketing overview; footer link |
 | `src/pages/blueprint.astro` | `/blueprint` — your styled form; optional Kit POST URL in `site.ts` (no Kit iframe/embed) |
 | `src/pages/blueprint/thanks.astro` | `/blueprint/thanks` — post opt-in: Skool + services + contact |
-| `Stitch-Files/` | Source design exports (reference; not bundled) |
+| `Stitch-Files/` | Source design exports (local reference; gitignored — not required for deploy) |
 
 Forms (`contact`, `blueprint`) post to `#` — wire them to your endpoint (e.g. Formspree, serverless, or CRM) when ready. Set `STRATEGY_CALL_BOOKING_URL` in `src/data/site.ts` when you have a Calendly (or other) booking link to show on `/contact`.
