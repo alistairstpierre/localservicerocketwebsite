@@ -26,15 +26,15 @@ npm run preview
 |------|---------|
 | `README.md` | This file — project intro and layout |
 | `package.json` | Scripts and dependencies (Astro + Tailwind) |
-| `astro.config.mjs` | Static output, Tailwind, sitemap (`@astrojs/sitemap`), production `site` URL |
+| `astro.config.mjs` | Static output, Tailwind, production `site` URL, local sitemap integration |
 | `tailwind.config.mjs` | Ignition design tokens (colors, fonts, 0px radius) |
 | `public/favicon.svg` | Favicon |
+| `public/robots.txt` | Crawl hints + `Sitemap` URL (build also writes `dist/sitemap.xml`) |
 | `public/lsr-logo.png` | Source PNG for wordmark (run `optimize-public-rasters.mjs` → `lsr-logo.webp`) |
 | `public/logo-no-text.png` | Source PNG for mark (same script → `logo-no-text.webp`) |
 | `public/lsr-logo.webp` | Full wordmark — `SiteHeader` from `md` up, default OG image |
 | `public/logo-no-text.webp` | Symbol — `SiteHeader` mobile, `SiteFooter`; schema logo path in `site.ts` |
-| `public/services-hero-image.png` | Source for `/services` hero (script → `services-hero.webp`) |
-| `public/services-hero.webp` | Services page hero image |
+| `public/services-hero.webp` | `/services` hero — build from a source PNG listed in `optimize-public-rasters.mjs`, then delete the PNG if you want to save repo size |
 | `src/env.d.ts` | Astro / Vite TypeScript references |
 | `src/data/site.ts` | Shared URLs, NAP/SEO constants (`SITE_URL`, business name, address, phone, email, `absoluteUrl`, schema helpers), playbook + booking optional fields |
 | `src/lib/jsonLd.ts` | One JSON-LD `@graph` per page (`buildHomepageJsonLd`, `buildInnerPageJsonLd`) — see `docs/SITE-STRUCTURE-AND-SEO-GUIDE.md` |
@@ -43,6 +43,7 @@ npm run preview
 | `scripts/optimize-founder-photo.mjs` | Resize `public/alistair-profile.png` → WebP for `/about` (`node scripts/optimize-founder-photo.mjs`, optional `--delete-source`) |
 | `scripts/optimize-case-study-trucks.mjs` | `dryDuckTruck.jpg` + `coastalCurrentTruck.png` → `dry-duck-truck.webp` / `coastal-current-truck.webp` for home + `/case-studies` |
 | `scripts/optimize-public-rasters.mjs` | Batch: services hero + logos → WebP (`node scripts/optimize-public-rasters.mjs`, optional `--delete-source`) |
+| `scripts/astro-sitemap-integration.mjs` | Post-build `sitemap.xml` in `dist/` (replaces `@astrojs/sitemap` if Node hits ESM/CJS errors) |
 | `src/layouts/BaseLayout.astro` | HTML shell, fonts, global CSS, optional `pageSparks` layer |
 | `src/components/SiteHeader.astro` | Primary navigation |
 | `src/components/SiteFooter.astro` | Footer links |

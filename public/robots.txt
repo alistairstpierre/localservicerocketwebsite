@@ -1,0 +1,5 @@
+# Allow crawlers; sitemap is emitted to dist as sitemap.xml on build (see scripts/astro-sitemap-integration.mjs).
+User-agent: *
+Allow: /
+
+Sitemap: https://localservicerocket.com/sitemap.xml

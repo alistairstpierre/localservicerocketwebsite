@@ -6,7 +6,7 @@ import SiteFooter from "../components/SiteFooter.astro";
 import { SKOOL_URL } from "../data/site";
 import { buildInnerPageJsonLd } from "../lib/jsonLd";
 
-/** Hero (see `scripts/optimize-public-rasters.mjs` — source `services-hero-image.png`). */
+/** Hero (see `scripts/optimize-public-rasters.mjs`; WebP output `services-hero.webp`). */
 const servicesHeroImg = "/services-hero.webp";
 
 /** Per-service phase rows use the same icons as the global process for visual consistency. */
@@ -173,8 +173,8 @@ const jsonLd = buildInnerPageJsonLd({
           alt="AI marketing workspace: strategy, local search, and growth systems for service businesses"
           class="h-full w-full object-cover opacity-90"
           src={servicesHeroImg}
-          width="1350"
-          height="900"
+          width="1376"
+          height="768"
           loading="eager"
         />
         <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-deep/80 to-transparent"></div>

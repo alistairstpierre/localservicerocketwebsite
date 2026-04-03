@@ -13,7 +13,8 @@ const del = process.argv.includes("--delete-source");
 /** @type {{ src: string; dest: string; maxW: number; maxH: number }[]} */
 const jobs = [
   {
-    src: "services-hero-image.png",
+    // Drop your export here as `services-hero-source.png`, run this script, then delete the PNG to save space.
+    src: "services-hero-source.png",
     dest: "services-hero.webp",
     maxW: 1600,
     maxH: 900,
