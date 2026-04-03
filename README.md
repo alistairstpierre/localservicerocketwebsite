@@ -24,7 +24,7 @@ npm run preview
 
 | Path | Purpose |
 |------|---------|
-| `README.md` | This file — project intro and layout |
+| `README.md` | This file: project intro and layout |
 | `package.json` | Scripts and dependencies (Astro + Tailwind) |
 | `astro.config.mjs` | Static output, Tailwind, production `site` URL, local sitemap integration |
 | `tailwind.config.mjs` | Ignition design tokens (colors, fonts, 0px radius) |
@@ -32,12 +32,12 @@ npm run preview
 | `public/robots.txt` | Crawl hints + `Sitemap` URL (build also writes `dist/sitemap.xml`) |
 | `public/lsr-logo.png` | Source PNG for wordmark (run `optimize-public-rasters.mjs` → `lsr-logo.webp`) |
 | `public/logo-no-text.png` | Source PNG for mark (same script → `logo-no-text.webp`) |
-| `public/lsr-logo.webp` | Full wordmark — `SiteHeader` from `md` up, default OG image |
-| `public/logo-no-text.webp` | Symbol — `SiteHeader` mobile, `SiteFooter`; schema logo path in `site.ts` |
-| `public/services-hero.webp` | `/services` hero — build from a source PNG listed in `optimize-public-rasters.mjs`, then delete the PNG if you want to save repo size |
+| `public/lsr-logo.webp` | Full wordmark: `SiteHeader` from `md` up, default OG image |
+| `public/logo-no-text.webp` | Symbol: `SiteHeader` mobile, `SiteFooter`; schema logo path in `site.ts` |
+| `public/services-hero.webp` | `/services` hero: build from a source PNG listed in `optimize-public-rasters.mjs`, then delete the PNG if you want to save repo size |
 | `src/env.d.ts` | Astro / Vite TypeScript references |
 | `src/data/site.ts` | Shared URLs, NAP/SEO constants (`SITE_URL`, business name, address, phone, email, `absoluteUrl`, schema helpers), playbook + booking optional fields |
-| `src/lib/jsonLd.ts` | One JSON-LD `@graph` per page (`buildHomepageJsonLd`, `buildInnerPageJsonLd`) — see `docs/SITE-STRUCTURE-AND-SEO-GUIDE.md` |
+| `src/lib/jsonLd.ts` | One JSON-LD `@graph` per page (`buildHomepageJsonLd`, `buildInnerPageJsonLd`); see `docs/SITE-STRUCTURE-AND-SEO-GUIDE.md` |
 | `src/styles/global.css` | Tailwind layers + shared utilities (afterburner, panels, sparks) |
 | `src/scripts/client-motion.ts` | Sparks, scroll reveal, mobile nav toggle |
 | `scripts/optimize-founder-photo.mjs` | Resize `public/alistair-profile.png` → WebP for `/about` (`node scripts/optimize-founder-photo.mjs`, optional `--delete-source`) |
@@ -47,17 +47,17 @@ npm run preview
 | `src/layouts/BaseLayout.astro` | HTML shell, fonts, global CSS, optional `pageSparks` layer |
 | `src/components/SiteHeader.astro` | Primary navigation |
 | `src/components/SiteFooter.astro` | Footer links |
-| `src/components/home/HomeContent.astro` | Homepage — StoryBrand sections + master copy |
+| `src/components/home/HomeContent.astro` | Homepage: StoryBrand sections + master copy |
 | `docs/LSR-Master-Copy-Document-v1.docx.pdf` | Approved positioning, results, and voice |
 | `docs/KIT-PLAYBOOK-FORM-SETUP.md` | Kit playbook: **Form** vs landing page, Embed → HTML, `site.ts` + `blueprint.astro` wiring |
 | `src/pages/index.astro` | `/` |
-| `src/pages/about.astro` | `/about` — founder story, philosophy, how we work |
-| `src/pages/services.astro` | `/services` — jump nav; vertical timeline for global + per-service phases; pricing in each service header; bundle + Skool |
-| `src/pages/case-studies.astro` | `/case-studies` — verified client results |
-| `src/pages/contact.astro` | `/contact` — strategy call + enquiry form |
-| `src/pages/privacy.astro` | `/privacy` — email/marketing overview; footer link |
-| `src/pages/blueprint.astro` | `/blueprint` — your styled form; optional Kit POST URL in `site.ts` (no Kit iframe/embed) |
-| `src/pages/blueprint/thanks.astro` | `/blueprint/thanks` — post opt-in: Skool + services + contact |
-| `Stitch-Files/` | Source design exports (local reference; gitignored — not required for deploy) |
+| `src/pages/about.astro` | `/about`: founder story, philosophy, how we work |
+| `src/pages/services.astro` | `/services`: jump nav; vertical timeline for global + per-service phases; pricing in each service header; bundle + Skool |
+| `src/pages/case-studies.astro` | `/case-studies`: verified client results |
+| `src/pages/contact.astro` | `/contact`: strategy call + enquiry form |
+| `src/pages/privacy.astro` | `/privacy`: email/marketing overview; footer link |
+| `src/pages/blueprint.astro` | `/blueprint`: your styled form; optional Kit POST URL in `site.ts` (no Kit iframe/embed) |
+| `src/pages/blueprint/thanks.astro` | `/blueprint/thanks`: post opt-in: Skool + services + contact |
+| `Stitch-Files/` | Source design exports (local reference; gitignored, not required for deploy) |
 
-Forms (`contact`, `blueprint`) post to `#` — wire them to your endpoint (e.g. Formspree, serverless, or CRM) when ready. Set `STRATEGY_CALL_BOOKING_URL` in `src/data/site.ts` when you have a Calendly (or other) booking link to show on `/contact`.
+Forms (`contact`, `blueprint`) post to `#`. Wire them to your endpoint (e.g. Formspree, serverless, or CRM) when ready. Set `STRATEGY_CALL_BOOKING_URL` in `src/data/site.ts` when you have a Calendly (or other) booking link to show on `/contact`.

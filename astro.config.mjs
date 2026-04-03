@@ -1,5 +1,5 @@
 // Astro config: static site for Vercel. Tailwind carries Stitch / Ignition design tokens.
-// Sitemap: local integration (see `scripts/astro-sitemap-integration.mjs`) — avoids @astrojs/sitemap ESM/CJS issues in some Node/tooling setups.
+// Sitemap: local integration (see `scripts/astro-sitemap-integration.mjs`). Avoids @astrojs/sitemap ESM/CJS issues in some Node/tooling setups.
 import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import staticSitemap from "./scripts/astro-sitemap-integration.mjs";

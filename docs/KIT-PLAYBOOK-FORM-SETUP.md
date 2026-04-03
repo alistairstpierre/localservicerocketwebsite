@@ -6,7 +6,7 @@ Official Kit reference: [Form embedding basics](https://help.kit.com/en/articles
 
 ---
 
-## 1. Form — not a Landing Page
+## 1. Form (not a Landing Page)
 
 | Use this | Skip this for `/blueprint` |
 |----------|---------------------------|
@@ -30,7 +30,7 @@ Kit moves UI sometimes, but as of their docs the path is:
 
 **If you don’t see “HTML”:** you might be on a **Landing page** share screen (it looks different). Go back to **Forms**, open a **Form**, then **Embed** again.
 
-**If you only see JavaScript:** switch the embed type to **HTML** in that Embed UI — Kit documents a separate **HTML** option specifically for editing / stripping styling.
+**If you only see JavaScript:** switch the embed type to **HTML** in that Embed UI. Kit documents a separate **HTML** option specifically for editing / stripping styling.
 
 **If Kit only gave you a `<script>` plus a `<form>` (JavaScript embed):** you can still use it. The real submit address is the **`action`** on that `<form>` (example: `https://app.kit.com/forms/9282778/subscriptions`). We **do not** paste Kit’s script on `/blueprint` so your styling stays yours; the browser sends a normal form `POST` to that URL with `email_address`.
 
@@ -52,7 +52,7 @@ Kit moves UI sometimes, but as of their docs the path is:
 
 Your embed’s `data-options` JSON may say **`"action":"message"`** with **`"redirect_url":""`**. That means after submit, people see Kit’s success text (or a Kit page), **not** your `/blueprint/thanks`.
 
-In the **Form builder** in Kit (same form → **Settings** / **Incentive** / after-subscribe options — exact labels vary), switch **after subscribe** to **redirect** (or add a redirect URL) and set:
+In the **Form builder** in Kit (same form → **Settings** / **Incentive** / after-subscribe options; exact labels vary), switch **after subscribe** to **redirect** (or add a redirect URL) and set:
 
 - **`https://YOUR-DOMAIN.com/blueprint/thanks`** (your real production domain, `https://` included)
 

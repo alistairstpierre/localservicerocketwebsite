@@ -18,5 +18,5 @@ dist/
 # Framework
 .next/
 
-# Stitch / design exports — local reference only (see README); not needed for production build
+# Stitch / design exports: local reference only (see README); not needed for production build
 Stitch-Files/

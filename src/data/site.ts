@@ -1,14 +1,14 @@
 // Shared URLs and site-wide constants for Local Service Rocket pages (single source of truth).
 // SEO/NAP: keep in sync with footer, contact page, and JSON-LD (`src/lib/jsonLd.ts`).
 
-/** Production site origin — also set in `astro.config.mjs` for builds & sitemap. */
+/** Production site origin, also set in `astro.config.mjs` for builds & sitemap. */
 export const SITE_URL = "https://localservicerocket.com";
 
 export const BUSINESS_NAME = "Local Service Rocket";
 
 /** One sentence for meta/schema; US-first audience, honest NZ registered office. */
 export const BUSINESS_DESCRIPTION =
-  "AI-assisted websites, local SEO, and advertising for local service businesses — most clients in the United States; we also serve Australia and New Zealand from our Wellington office.";
+  "AI-assisted websites, local SEO, and advertising for local service businesses. Most clients are in the United States; we also serve Australia and New Zealand from our Wellington office.";
 
 export const BUSINESS_EMAIL = "hello@localservicerocket.com";
 
