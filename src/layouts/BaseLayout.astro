@@ -1,0 +1,58 @@
+---
+// Root HTML shell: fonts, global CSS, optional full-page spark layer for case studies.
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+  mainClass?: string;
+  pageSparks?: boolean;
+}
+
+const {
+  title,
+  description = "Local Service Rocket — aerospace-grade growth engineering for local service brands.",
+  mainClass = "pt-24 md:pt-28",
+  pageSparks = false,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/png" href="/logo-no-text.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+      rel="stylesheet"
+    />
+    <title>{title}</title>
+  </head>
+  <body class="overflow-x-hidden font-body selection:bg-primary-container selection:text-white">
+    {
+      pageSparks && (
+        <div
+          class="pointer-events-none fixed inset-0 z-0 overflow-hidden"
+          id="page-sparks"
+        />
+      )
+    }
+    <slot name="header" />
+    <main class:list={[mainClass]}>
+      <slot />
+    </main>
+    <slot name="footer" />
+    <script>
+      import "../scripts/client-motion.ts";
+    </script>
+  </body>
+</html>

@@ -1,0 +1,179 @@
+---
+// Lead magnet: styled form POSTs to Kit (site.ts). Without Kit URL, client redirect to thanks for local testing.
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import { SKOOL_URL, BLUEPRINT_THANKS_PATH, KIT_PLAYBOOK_FORM_ACTION } from "../data/site";
+
+const formAction = KIT_PLAYBOOK_FORM_ACTION ?? "#";
+const useKitBackend = Boolean(KIT_PLAYBOOK_FORM_ACTION);
+
+const playbookBullets = [
+  "Page hierarchy: H1s, H2s, and section structure that match how people search",
+  "Meta titles and meta descriptions worth clicking",
+  "Schema markup you can actually maintain",
+  "Image alt text and on-page details that don’t sound robotic",
+  "One serious AI prompt workflow — so you can work through the whole site systematically",
+];
+
+const topics = [
+  {
+    n: "01",
+    title: "Websites in an afternoon",
+    body: "SEO-aware structure from the first publish — not a theme you patch later for a month.",
+  },
+  {
+    n: "02",
+    title: "Local SEO & Google Maps",
+    body: "Signals that move you toward page 1, taught with the same checklist we run for clients.",
+  },
+  {
+    n: "03",
+    title: "Ads without guesswork",
+    body: "Google and Meta setups where AI assists targeting and creative — you still own the account.",
+  },
+];
+---
+
+<BaseLayout
+  title="Free SEO Playbook — AI Prompt for Full On-Page SEO | Local Service Rocket"
+  description="Get our SEO secret sauce: a large playbook with an AI prompt to upgrade headings, meta titles and descriptions, schema, image alt text, and more — free by email."
+>
+  <SiteHeader slot="header" />
+
+  <main class="relative flex min-h-[calc(100vh-5rem)] flex-col items-center overflow-hidden px-4 pt-8 pb-16">
+    <div class="pointer-events-none absolute inset-0 z-0 bg-embers"></div>
+    <div
+      class="absolute bottom-0 left-1/2 h-[512px] w-[200%] -translate-x-1/2 bg-gradient-to-t from-primary-container/10 to-transparent blur-3xl"
+    >
+    </div>
+
+    <section class="relative z-10 w-full max-w-4xl py-12 text-center md:py-16">
+      <div
+        class="rocket-shard mb-6 inline-flex items-center gap-2 border-l-2 border-primary bg-surface-container-highest/50 px-4 py-1 backdrop-blur-md"
+      >
+        <span class="material-symbols-outlined text-sm text-primary icon-outline">emoji_objects</span>
+        <span class="font-label text-xs font-bold uppercase tracking-[0.3em] text-on-surface-variant">
+          Free resource — SEO secret sauce
+        </span>
+      </div>
+      <h1 class="mb-6 font-headline text-3xl font-black uppercase leading-[0.95] tracking-tighter text-on-surface md:text-5xl lg:text-6xl">
+        The AI Prompt &amp; Playbook We Use to
+        <span class="flame-headline">Upgrade a Whole Site’s SEO</span>
+      </h1>
+      <p class="mx-auto mb-8 max-w-2xl text-lg font-light leading-relaxed text-on-surface-variant md:text-xl">
+        A large, practical doc — built for local service businesses — with an AI prompt that walks key on-page work in
+        one coherent pass: headings, metas, schema, image alts, and the details most sites skip. Yours free by email.
+      </p>
+
+      <ul class="mx-auto mb-10 max-w-xl list-none space-y-3 text-left text-sm text-on-surface-variant md:text-base">
+        {
+          playbookBullets.map((line) => (
+            <li class="flex gap-3 border-l-2 border-primary-container/40 pl-4">
+              <span class="material-symbols-outlined mt-0.5 shrink-0 text-lg text-primary-container icon-outline">
+                check_circle
+              </span>
+              <span>{line}</span>
+            </li>
+          ))
+        }
+      </ul>
+
+      <p class="mb-3 font-headline text-xs font-black uppercase tracking-[0.2em] text-secondary-container">
+        Send it to my inbox
+      </p>
+      <div class="mx-auto max-w-xl bg-surface-container-low/80 p-1 backdrop-blur-2xl">
+        <!-- Kit Form 9282778: POST action in site.ts. No Kit `<script>`/CSS here — keeps this styling. -->
+        <form id="blueprint-form" class="flex flex-col" method="post" action={formAction}>
+          <div class="flex flex-col gap-0 md:flex-row">
+            <label class="sr-only" for="blueprint-email">Email</label>
+            <input
+              id="blueprint-email"
+              class="min-h-[52px] flex-grow border-none bg-surface-container-highest p-5 font-headline text-sm uppercase tracking-wide text-on-surface placeholder:text-neutral-600 focus:bg-surface-bright focus:ring-0 md:text-base"
+              placeholder="Your email"
+              type="email"
+              name="email_address"
+              autocomplete="email"
+              required
+            />
+            <button
+              class="group flex items-center justify-center gap-2 bg-primary-container px-6 py-5 font-headline text-sm font-black uppercase tracking-tighter text-white transition-all hover:bg-primary md:text-base"
+              type="submit"
+            >
+              Get the playbook
+              <span class="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1 icon-outline">
+                chevron_right
+              </span>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <hr class="mx-auto my-12 w-full max-w-md border-white/10" />
+
+      <p class="mb-4 text-xs uppercase tracking-widest text-neutral-500">
+        Want live walkthroughs and community?
+      </p>
+      <div class="mb-10 flex flex-col items-stretch justify-center gap-4 sm:flex-row sm:justify-center">
+        <a
+          href={SKOOL_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center gap-3 border-2 border-white/20 px-8 py-5 font-headline text-base font-black uppercase tracking-tight text-white transition-colors hover:bg-white/10 md:text-lg"
+        >
+          Join on Skool — Free
+          <span class="material-symbols-outlined icon-outline">arrow_outward</span>
+        </a>
+      </div>
+
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-6 text-[10px] font-bold uppercase tracking-widest text-neutral-500">
+        <span class="inline-flex items-center gap-2">
+          <span class="material-symbols-outlined text-sm icon-outline">groups</span>
+          Same playbooks as DFY clients
+        </span>
+        <span class="inline-flex items-center gap-2">
+          <span class="material-symbols-outlined text-sm icon-outline">public</span>
+          NZ · AU · USA community
+        </span>
+      </div>
+    </section>
+
+    <div class="relative z-10 mt-4 grid w-full max-w-6xl grid-cols-1 gap-6 px-4 md:grid-cols-3">
+      {
+        topics.map((t) => (
+          <div class="group border-l-4 border-primary/30 bg-surface-container-low p-8 transition-all hover:border-primary">
+            <div class="mb-2 font-headline text-3xl font-black italic text-primary-container">{t.n}</div>
+            <h3 class="mb-3 font-headline text-lg font-bold uppercase tracking-tight text-white">{t.title}</h3>
+            <p class="text-sm font-light leading-relaxed text-on-surface-variant">{t.body}</p>
+          </div>
+        ))
+      }
+    </div>
+  </main>
+
+  <script define:vars={{ thanksPath: BLUEPRINT_THANKS_PATH, useKitBackend }}>
+    function initBlueprintForm() {
+      const form = document.getElementById("blueprint-form");
+      if (!(form instanceof HTMLFormElement)) return;
+
+      form.addEventListener("submit", (e) => {
+        if (useKitBackend) {
+          if (!form.reportValidity()) {
+            e.preventDefault();
+          }
+          return;
+        }
+        e.preventDefault();
+        if (!form.reportValidity()) return;
+        window.location.assign(thanksPath);
+      });
+    }
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initBlueprintForm);
+    } else {
+      initBlueprintForm();
+    }
+  </script>
+
+  <SiteFooter slot="footer" />
+</BaseLayout>

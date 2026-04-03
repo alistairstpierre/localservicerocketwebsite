@@ -1,0 +1,56 @@
+// Tailwind theme: matches Stitch-Files/ignition_high_octane/DESIGN.md (Kinetic Propulsion / Aerospace Brutalism).
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ["./src/**/*.{astro,html,js,jsx,ts,tsx,md,mdx}"],
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        deep: "#050505",
+        background: "#131313",
+        surface: "#131313",
+        "surface-dim": "#131313",
+        "surface-container-lowest": "#0e0e0e",
+        "surface-container-low": "#1c1b1b",
+        "surface-container": "#201f1f",
+        "surface-container-high": "#2a2a2a",
+        "surface-container-highest": "#353534",
+        "surface-bright": "#3a3939",
+        "surface-variant": "#353534",
+        primary: "#ffb59e",
+        "primary-container": "#ff571a",
+        "on-primary": "#5e1700",
+        "on-primary-container": "#521300",
+        secondary: "#fff9ef",
+        "secondary-container": "#ffdb3c",
+        "on-secondary": "#3a3000",
+        "on-secondary-container": "#725f00",
+        tertiary: "#ffb4a6",
+        "tertiary-container": "#ff553b",
+        "on-tertiary": "#660600",
+        "on-tertiary-container": "#5a0500",
+        "on-background": "#e5e2e1",
+        "on-surface": "#e5e2e1",
+        "on-surface-variant": "#e6beb2",
+        "outline-variant": "#5c4037",
+        outline: "#ad897e",
+        "primary-fixed-dim": "#ffb59e",
+      },
+      fontFamily: {
+        headline: ['"Space Grotesk"', "ui-sans-serif", "system-ui", "sans-serif"],
+        body: ['"Plus Jakarta Sans"', "ui-sans-serif", "system-ui", "sans-serif"],
+        label: ['"Plus Jakarta Sans"', "ui-sans-serif", "system-ui", "sans-serif"],
+      },
+      borderRadius: {
+        DEFAULT: "0px",
+        lg: "0px",
+        xl: "0px",
+        full: "9999px",
+      },
+      transitionTimingFunction: {
+        mechanical: "cubic-bezier(0.2, 1, 0.3, 1)",
+      },
+    },
+  },
+  plugins: [],
+};

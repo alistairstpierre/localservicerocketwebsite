@@ -1,0 +1,634 @@
+---
+// Homepage: 9-section StoryBrand layout. Copy from LSR-Master-Copy-Document-v1.
+// Design preserves Ignition theme: flame-headline, afterburner-btn, mission-panel, brutal-border.
+import { SKOOL_URL as skoolUrl } from "../../data/site";
+const heroImg =
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuAQv1fZDDd7_grQCLCY--PteZHSaxVB0dNf2cqYX5PRz_GIGQlAkjIdTX_Umi9049qysAWZAFcbf3iydWO5V6K53NJ6HFfDtou3za22CuZRPoO-jiHEqW4JaEGpDy1V1Dy1QFfFzo2aMflNDeKx3peAPwSOt7Glq-qtokAc8WOe8PKwoXXiSGWHkIdeTxesT2FrOH2jgv3KWYQDYUS8o4zL6nScSym9yinWwwJf141GhngR5jA7HMCfUmR88LydGceThrhSvgQv1RYh";
+
+const proofBullets = [
+  "Dry Duck Basements ranked top 3 in their local market within 30 days of launch",
+  "An Iowa electrician went from $60k to $250k a month using this system",
+  "Flat monthly fee. No lock-in. No black box.",
+];
+
+const socialProof = [
+  { icon: "verified", text: "Google Partner" },
+  { icon: "history", text: "12+ Years in Tech" },
+  { icon: "public", text: "NZ · AU · USA" },
+  { icon: "emoji_events", text: "Proven Results" },
+];
+
+const walls = [
+  {
+    num: "01",
+    tag: "External Problem",
+    heading: "You hire an agency and hand over $2,000+ a month for a black box.",
+    body: "No clear reporting. No ownership of the system. The moment you stop paying, everything stops.",
+    icon: "payments",
+  },
+  {
+    num: "02",
+    tag: "Internal Problem",
+    heading: "You try to learn it yourself and spend six months going nowhere.",
+    body: "Too many tools. Too much conflicting advice. A half-built website and no rankings to show for it.",
+    icon: "hourglass_empty",
+  },
+  {
+    num: "03",
+    tag: "The Real Issue",
+    heading: "AI has changed what's possible — but most businesses don't know it yet.",
+    body: "What used to take a specialist six weeks can now be built in an afternoon. The businesses that figure this out first will own their local market. The ones waiting won't.",
+    icon: "psychology",
+  },
+];
+
+const guideStats = [
+  { value: "Google Partner", label: "Certified" },
+  { value: "$250k/mo", label: "Client result" },
+  { value: "Top 3", label: "When you go all in" },
+  { value: "30 days", label: "To strong rankings" },
+];
+
+const campaignCards = [
+  {
+    location: "Iowa",
+    service: "SEO + Google Ads",
+    stat: "$60k → $250k/mo",
+    body: "+316% revenue. $300k peak Dec 2025. Had worked with 6 failed agencies before this system.",
+  },
+  {
+    location: "Texas",
+    service: "Google Ads + LSA",
+    stat: "1 → 4 locations",
+    body: "50–80 booked jobs/month. Expanded in under two years using Google Ads alone.",
+  },
+  {
+    location: "Melbourne",
+    service: "Website + SEO",
+    stat: "$0 → $700k",
+    body: "Zero residential calls before this system. Three calls a day within weeks of launch.",
+  },
+  {
+    location: "Phoenix",
+    service: "Google Ads",
+    stat: "0 → 5–8 calls/wk",
+    body: "Previous agency produced nothing. GBP and site fixed in 14 days.",
+  },
+];
+
+const steps = [
+  {
+    title: "Book a free 30-minute strategy call",
+    body: "Tell us where you are — what's working, what isn't, and what you want. We'll assess your current setup and tell you exactly what the fastest path to page 1 looks like for your business. No obligation.",
+  },
+  {
+    title: "We build and run your AI marketing system",
+    body: "Website, SEO, Google Business Profile, ads — built using AI systems, set up properly from day one. Flat monthly fee. You own everything we build.",
+  },
+  {
+    title: "Your business shows up when people are searching",
+    body: "Top 3 on Google Maps. Page 1 in search. Ads generating real enquiries. You run your business — the system does the marketing.",
+  },
+];
+
+const services = [
+  {
+    name: "Website Build",
+    price: "Price TBD",
+    priceNote: "one-off payment",
+    body: "SEO-optimised website built using AI. Designed to rank and convert. Live fast — not weeks from now.",
+    icon: "web",
+  },
+  {
+    name: "SEO",
+    price: "$400",
+    priceNote: "/month",
+    body: "Local rankings, on-page optimisation, Google Maps visibility. The signals that get you to page 1 — managed with AI, not guesswork.",
+    icon: "trending_up",
+  },
+  {
+    name: "Advertising",
+    price: "$400",
+    priceNote: "/month",
+    body: "Google and Facebook ads that generate real enquiries. AI manages targeting and optimisation. You set the budget.",
+    icon: "campaign",
+  },
+];
+---
+
+<!-- ============================================================
+     SECTION 1 — HERO (Character + Desire)
+     ============================================================ -->
+<section class="relative flex min-h-screen items-center overflow-hidden pt-20" id="hero-sparks">
+  <div class="absolute inset-0 z-0">
+    <img
+      alt="Local business marketing system powered by AI"
+      class="h-full w-full object-cover"
+      src={heroImg}
+    />
+    <div class="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/30"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-deep via-transparent to-transparent"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <div class="relative z-10 container mx-auto px-6 md:px-8">
+    <div class="max-w-4xl reveal">
+      <h1
+        class="mb-6 font-headline text-3xl font-black uppercase leading-[0.95] tracking-tighter text-white sm:text-4xl md:text-5xl lg:text-6xl"
+      >
+        Get Your Business to the
+        <span class="flame-headline">Top of Google</span>
+        With AI
+      </h1>
+
+      <p class="mb-10 max-w-2xl text-lg text-neutral-300 md:text-xl">
+        We build websites, run SEO, and manage ads using AI — better results, lower cost, no agency
+        runaround. And we show you how to build it yourself.
+      </p>
+
+      <ul class="mb-10 space-y-3">
+        {
+          proofBullets.map((bullet) => (
+            <li class="flex items-start gap-3 text-on-surface-variant">
+              <span class="material-symbols-outlined mt-0.5 shrink-0 text-lg text-secondary-container">
+                check_circle
+              </span>
+              <span class="text-sm md:text-base">{bullet}</span>
+            </li>
+          ))
+        }
+      </ul>
+
+      <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
+        <a
+          href="/contact"
+          class="afterburner-btn inline-flex items-center justify-center gap-3 bg-primary-container px-8 py-5 font-headline text-base font-black uppercase tracking-tight text-white md:text-lg"
+        >
+          Book a Free Strategy Call
+          <span class="material-symbols-outlined text-xl">arrow_forward</span>
+        </a>
+        <a
+          href={skoolUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center gap-2 border-2 border-white/20 px-8 py-5 font-headline text-base font-black uppercase tracking-tight text-white transition-colors hover:bg-white hover:text-black md:text-lg"
+        >
+          Learn to Do It Yourself — Free
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Social proof bar -->
+  <div
+    class="absolute bottom-0 left-0 z-20 w-full border-t border-white/10 bg-black/80 backdrop-blur-lg"
+  >
+    <div class="mx-auto flex flex-wrap items-center justify-center gap-6 px-6 py-4 md:justify-between md:gap-10 md:px-8 lg:max-w-5xl">
+      {
+        socialProof.map(({ icon, text }) => (
+          <div class="flex items-center gap-2 text-[11px] font-black uppercase tracking-widest text-neutral-400 md:text-xs">
+            <span class="material-symbols-outlined text-base text-primary-container">{icon}</span>
+            {text}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 2 — PROBLEM (Three Walls)
+     ============================================================ -->
+<section class="relative overflow-hidden bg-surface-container-lowest py-20 md:py-32">
+  <div class="grid-overlay"></div>
+  <div class="relative z-10 container mx-auto px-6 md:px-8">
+    <div class="mb-14 max-w-3xl reveal md:mb-20">
+      <h2 class="mb-6 font-headline text-3xl font-black uppercase leading-tight tracking-tighter text-white md:text-5xl">
+        Most Local Businesses Are Invisible on Google — and the
+        <span class="flame-headline">Usual Fixes Don't Work</span>
+      </h2>
+      <p class="text-lg text-neutral-400">
+        If you've tried to get your business found online, you've probably hit one of these three walls:
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-6 reveal md:grid-cols-3">
+      {
+        walls.map((wall) => (
+          <div class="mission-panel brutal-border panel-texture group p-8 transition-all hover:border-primary-container md:p-10">
+            <div class="mb-6 flex items-center gap-3">
+              <span class="font-headline text-3xl font-black italic text-primary-container">{wall.num}</span>
+              <span class="bg-surface-container-highest px-3 py-1 text-[10px] font-black uppercase tracking-widest text-primary">
+                {wall.tag}
+              </span>
+            </div>
+            <div class="mb-4">
+              <span class="material-symbols-outlined mb-4 block text-3xl text-primary-container/60 icon-outline">
+                {wall.icon}
+              </span>
+            </div>
+            <h3 class="mb-4 font-headline text-xl font-bold leading-snug tracking-tight text-white">
+              {wall.heading}
+            </h3>
+            <p class="text-sm leading-relaxed text-neutral-400">{wall.body}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 3 — GUIDE (Empathy + Authority)
+     ============================================================ -->
+<section class="relative overflow-hidden border-y border-white/5 bg-surface py-20 md:py-32">
+  <div class="exhaust-smoke absolute inset-0"></div>
+  <div class="relative z-10 container mx-auto px-6 md:px-8">
+    <div class="mx-auto max-w-3xl reveal">
+      <h2 class="mb-6 font-headline text-3xl font-black uppercase leading-tight tracking-tighter text-white md:text-5xl">
+        We Built This System on
+        <span class="flame-headline">Real Clients</span>
+        Before We Offered It to Anyone Else
+      </h2>
+
+      <p class="mb-6 text-lg italic text-primary md:text-xl">
+        We've watched too many good businesses get burned by agencies that promised rankings and
+        delivered excuses.
+      </p>
+
+      <p class="mb-4 text-base leading-relaxed text-neutral-400 md:text-lg">
+        So we built the system ourselves. We tested it in real markets before we taught it to anyone.
+        Alistair St Pierre has spent 12+ years in tech. He's a certified Google Partner. He runs these
+        systems for owners across New Zealand, Australia, and the United States.
+      </p>
+      <div
+        class="mission-panel brutal-border mb-8 grid grid-cols-1 gap-6 border-l-4 border-l-primary-container/50 p-6 md:grid-cols-2 md:gap-10 md:p-8"
+      >
+        <div>
+          <p class="mb-2 font-headline text-[10px] font-black uppercase tracking-[0.35em] text-neutral-500">
+            What we did the old agency way
+          </p>
+          <p class="text-sm leading-relaxed text-neutral-400">
+            Retainers, long turnarounds, reporting you couldn't act on, and a lot of manual work
+            between you and the outcome.
+          </p>
+        </div>
+        <div>
+          <p class="mb-2 font-headline text-[10px] font-black uppercase tracking-[0.35em] text-primary-container">
+            What we do with the AI-led stack now
+          </p>
+          <p class="text-sm leading-relaxed text-neutral-300">
+            Faster builds, clear levers you can see, and optimisation driven by live search and ad data.
+            The wins on this page are from this newer system — not from the slow, black-box playbook.
+          </p>
+        </div>
+      </div>
+      <p class="mb-4 text-base leading-relaxed text-neutral-400 md:text-lg">
+        Here's what we're not going to pretend: not every engagement ends the same. That's not how
+        partnerships work. We own the marketing side. You still need to earn reviews, answer the phone,
+        and run a sales process that closes the leads we send. Good marketing won't fix broken customer
+        service or a team that doesn't follow up.
+      </p>
+      <p class="mb-12 border-l-4 border-secondary-container bg-white/[0.03] py-4 pl-6 text-base leading-relaxed text-neutral-300 md:text-lg">
+        There's a yin and yang to it: we handle the marketing system; you strengthen reviews, service,
+        and sales on your side. When clients show up hand-in-hand and put in the work, it's worked out
+        every time.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 gap-px overflow-hidden border-2 border-white/10 brutal-border bg-white/5 reveal md:grid-cols-4">
+      {
+        guideStats.map(({ value, label }) => (
+          <div class="mission-panel panel-texture p-8 text-center transition-all hover:bg-surface-bright md:p-10">
+            <div class="mb-2 font-headline text-2xl font-black text-primary-container afterburner-glow md:text-3xl">
+              {value}
+            </div>
+            <div class="text-[10px] font-black uppercase tracking-[0.4em] text-neutral-500">{label}</div>
+          </div>
+        ))
+      }
+    </div>
+    <p
+      class="mx-auto mt-8 max-w-3xl text-center text-sm leading-relaxed text-neutral-400 reveal md:text-base"
+    >
+      <span class="font-headline font-bold text-secondary-container">10 SMEs</span> across the US,
+      Australia, and New Zealand right now. We're in the work every week — taking what we learn in the
+      field and feeding it straight back into the system.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 4 — RESULTS (Proof)
+     ============================================================ -->
+<section class="relative overflow-hidden bg-surface-container-lowest py-20 md:py-32">
+  <div class="grid-overlay"></div>
+  <div class="relative z-10 container mx-auto px-6 md:px-8">
+    <div class="mb-14 max-w-3xl reveal md:mb-20">
+      <h2 class="mb-4 font-headline text-3xl font-black uppercase leading-tight tracking-tighter text-white md:text-5xl">
+        Real Results. Real Businesses.
+        <span class="flame-headline">Built With AI.</span>
+      </h2>
+      <p class="text-lg text-neutral-400">
+        Every site and campaign here uses the same AI system we teach. These numbers reflect the
+        AI-led approach — faster iteration and clearer levers than the old agency retainer model we
+        used to grind through.
+      </p>
+    </div>
+
+    <!-- Featured cards -->
+    <div class="mb-8 grid grid-cols-1 gap-6 reveal lg:grid-cols-2">
+      <!-- Dry Duck — primary proof -->
+      <div class="mission-panel brutal-border panel-texture group flex flex-col justify-between p-8 transition-all hover:border-primary-container md:p-10">
+        <div>
+          <span class="mb-4 inline-block bg-primary-container/20 px-3 py-1 text-[10px] font-black uppercase tracking-widest text-primary-container">
+            Website + AI SEO — Des Moines, Iowa
+          </span>
+          <h3 class="mb-4 font-headline text-2xl font-black leading-snug tracking-tighter text-white md:text-3xl">
+            Top 3 in a 10-mile radius — within
+            <span class="text-secondary-container">30 days</span> of launch
+          </h3>
+          <p class="mb-6 text-sm leading-relaxed text-neutral-400 md:text-base">
+            Dry Duck Basements launched with a website built and optimised using AI. Ranking in the top 3
+            for local waterproofing searches within one month. Bringing in real enquiries from Des Moines
+            homeowners.
+          </p>
+        </div>
+        <a
+          href="https://dryduckbasements.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 font-headline text-sm font-bold uppercase tracking-widest text-primary transition-colors hover:text-white"
+        >
+          dryduckbasements.com
+          <span class="material-symbols-outlined text-base">arrow_outward</span>
+        </a>
+      </div>
+
+      <!-- Coastal Current — portfolio -->
+      <div class="mission-panel brutal-border panel-texture group flex flex-col justify-between p-8 transition-all hover:border-primary-container md:p-10">
+        <div>
+          <span class="mb-4 inline-block bg-white/10 px-3 py-1 text-[10px] font-black uppercase tracking-widest text-white">
+            Website Build — South Orange County, CA
+          </span>
+          <h3 class="mb-4 font-headline text-2xl font-black leading-snug tracking-tighter text-white md:text-3xl">
+            A complete electrician website — built with AI, ready to rank
+          </h3>
+          <p class="mb-6 text-sm leading-relaxed text-neutral-400 md:text-base">
+            Coastal Current Electrician. Full site built using AI — service pages, location pages,
+            structured for local SEO from day one. Launching soon. We'll publish ranking results when
+            it's live.
+          </p>
+        </div>
+        <a
+          href="https://coastal-current-website.vercel.app"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 font-headline text-sm font-bold uppercase tracking-widest text-primary transition-colors hover:text-white"
+        >
+          Preview the site
+          <span class="material-symbols-outlined text-base">arrow_outward</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Campaign results — 4 cards -->
+    <div class="grid grid-cols-1 gap-6 reveal sm:grid-cols-2 lg:grid-cols-4">
+      {
+        campaignCards.map((card) => (
+          <div class="group border-t-2 border-primary-container/40 bg-surface-container p-6 transition-all hover:border-primary-container hover:bg-surface-bright">
+            <div class="mb-1 text-[10px] font-black uppercase tracking-widest text-neutral-500">
+              {card.location} — {card.service}
+            </div>
+            <div class="mb-3 font-headline text-2xl font-black tracking-tighter text-secondary-container afterburner-glow">
+              {card.stat}
+            </div>
+            <p class="text-xs leading-relaxed text-neutral-400">{card.body}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 5 — PLAN (3 Steps)
+     ============================================================ -->
+<section class="relative bg-surface py-20 md:py-32">
+  <div class="relative z-10 container mx-auto px-6 md:px-8">
+    <div class="mx-auto max-w-3xl text-center reveal">
+      <h2 class="mb-4 font-headline text-3xl font-black uppercase leading-tight tracking-tighter text-white md:text-5xl">
+        Getting Started Takes
+        <span class="flame-headline">One Conversation</span>
+      </h2>
+    </div>
+
+    <div class="mx-auto mt-14 grid max-w-5xl grid-cols-1 gap-6 reveal md:mt-20 md:grid-cols-3">
+      {
+        steps.map((step, i) => (
+          <div class="mission-panel brutal-border panel-texture group relative p-8 transition-all hover:border-primary-container md:p-10">
+            <div class="mb-6 font-headline text-5xl font-black text-primary-container/20">{i + 1}</div>
+            <h3 class="mb-4 font-headline text-lg font-bold leading-snug tracking-tight text-white">
+              {step.title}
+            </h3>
+            <p class="text-sm leading-relaxed text-neutral-400">{step.body}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="mx-auto mt-12 max-w-lg text-center reveal">
+      <a
+        href="/contact"
+        class="afterburner-btn inline-flex items-center justify-center gap-3 bg-primary-container px-10 py-5 font-headline text-base font-black uppercase tracking-tight text-white md:text-lg"
+      >
+        Book a Free Strategy Call
+        <span class="material-symbols-outlined text-xl">arrow_forward</span>
+      </a>
+      <p class="mt-4 text-xs text-neutral-500">
+        No credit card. No commitment. Just a clear picture of what your marketing should look like.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 6 — SERVICES + PRICING
+     ============================================================ -->
+<section class="relative overflow-hidden border-y border-white/5 bg-surface-container-lowest py-20 md:py-32">
+  <div class="exhaust-smoke absolute inset-0"></div>
+  <div class="relative z-10 container mx-auto px-6 md:px-8">
+    <div class="mb-14 max-w-3xl reveal md:mb-20">
+      <h2 class="mb-4 font-headline text-3xl font-black uppercase leading-tight tracking-tighter text-white md:text-5xl">
+        AI Marketing That Runs.
+        <span class="flame-headline">Not a Retainer That Drains.</span>
+      </h2>
+      <p class="text-lg text-neutral-400">
+        Flat monthly fee. No lock-in contract. You own everything we build — including the system
+        itself.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-6 reveal md:grid-cols-3">
+      {
+        services.map((svc) => (
+          <div class="mission-panel brutal-border panel-texture group flex flex-col justify-between p-8 transition-all hover:border-primary-container md:p-10">
+            <div>
+              <span class="material-symbols-outlined mb-6 block text-3xl text-primary-container icon-outline">
+                {svc.icon}
+              </span>
+              <h3 class="mb-2 font-headline text-2xl font-black uppercase tracking-tighter text-white">
+                {svc.name}
+              </h3>
+              <div class="mb-4 font-headline text-xl font-bold text-secondary-container">
+                {svc.price}<span class="text-sm text-neutral-500">{svc.priceNote}</span>
+              </div>
+              <p class="text-sm leading-relaxed text-neutral-400">{svc.body}</p>
+            </div>
+            <a
+              href="/contact"
+              class="mt-8 block w-full border border-outline-variant py-4 text-center font-headline text-sm font-bold uppercase tracking-widest transition-all hover:bg-primary-container hover:text-white"
+            >
+              Get Started
+            </a>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Education path -->
+    <div class="mx-auto mt-12 max-w-2xl text-center reveal">
+      <div class="border-t border-white/10 pt-10">
+        <h3 class="mb-3 font-headline text-xl font-bold uppercase tracking-tight text-white">
+          Not ready to hand it over? Learn to build it yourself — free.
+        </h3>
+        <p class="mb-6 text-sm text-neutral-400">
+          We teach the exact AI systems we use — website builds, SEO, Google Maps, and ads. Access the
+          training free. Build it yourself, or bring it to your clients.
+        </p>
+        <a
+          href={skoolUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center gap-2 border-2 border-white/20 px-8 py-4 font-headline text-sm font-black uppercase tracking-tight text-white transition-colors hover:bg-white hover:text-black"
+        >
+          Learn to Do It Yourself
+          <span class="material-symbols-outlined text-base">arrow_outward</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 7 — FAILURE / STAKES
+     ============================================================ -->
+<section class="relative bg-surface py-20 md:py-28">
+  <div class="grid-overlay"></div>
+  <div class="relative z-10 container mx-auto px-6 md:px-8">
+    <div class="mx-auto max-w-3xl reveal">
+      <h2 class="mb-6 font-headline text-3xl font-black uppercase leading-tight tracking-tighter text-white md:text-5xl">
+        Every Month You're Not on Page 1,
+        <span class="flame-headline">Someone Else Is Getting Your Customers</span>
+      </h2>
+      <p class="text-base leading-relaxed text-neutral-400 md:text-lg">
+        Google favours businesses that have been showing up consistently. The ones at the top of your
+        market today started building six months ago. AI has compressed the timeline — but only for
+        the businesses using it. The longer the gap, the harder it gets to close.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 8 — SUCCESS VISION
+     ============================================================ -->
+<section class="relative overflow-hidden border-y border-white/5 bg-surface-container-lowest py-20 md:py-32">
+  <div class="exhaust-smoke absolute inset-0"></div>
+  <div class="relative z-10 container mx-auto px-6 md:px-8">
+    <div class="mb-14 text-center reveal md:mb-20">
+      <h2 class="font-headline text-3xl font-black uppercase leading-tight tracking-tighter text-white md:text-5xl">
+        What Your Business Looks Like With a
+        <span class="flame-headline">Working Marketing System</span>
+      </h2>
+    </div>
+
+    <div class="mx-auto grid max-w-4xl grid-cols-1 gap-6 reveal md:grid-cols-2">
+      <!-- Audience A — Local Business Owners -->
+      <div class="mission-panel brutal-border panel-texture group p-8 transition-all hover:border-primary-container md:p-10">
+        <div class="mb-4 flex items-center gap-3">
+          <span class="material-symbols-outlined text-2xl text-secondary-container">store</span>
+          <span class="text-[10px] font-black uppercase tracking-widest text-secondary-container">
+            Local Business Owners
+          </span>
+        </div>
+        <h3 class="mb-4 font-headline text-xl font-bold leading-snug tracking-tight text-white md:text-2xl">
+          Your phone rings from people who already want what you sell.
+        </h3>
+        <p class="text-sm leading-relaxed text-neutral-400">
+          Top 3 on Google Maps. Page 1 in search. Ads running to the right people. Your competitors
+          are still paying agencies — you own your system.
+        </p>
+      </div>
+
+      <!-- Audience B — Builders / Agency Owners -->
+      <div class="mission-panel brutal-border panel-texture group p-8 transition-all hover:border-primary-container md:p-10">
+        <div class="mb-4 flex items-center gap-3">
+          <span class="material-symbols-outlined text-2xl text-secondary-container">code</span>
+          <span class="text-[10px] font-black uppercase tracking-widest text-secondary-container">
+            Builders &amp; Agency Owners
+          </span>
+        </div>
+        <h3 class="mb-4 font-headline text-xl font-bold leading-snug tracking-tight text-white md:text-2xl">
+          You deliver a complete, ranking marketing system to a client in days — not weeks.
+        </h3>
+        <p class="text-sm leading-relaxed text-neutral-400">
+          Website live. GBP optimised. SEO in place. You charge for results, not hours — because AI
+          handles what used to take a team.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 9 — FINAL CTA
+     ============================================================ -->
+<section class="relative overflow-hidden py-24 md:py-36" id="cta-sparks">
+  <div class="grid-overlay"></div>
+  <div class="relative z-10 container mx-auto px-6 text-center md:px-8">
+    <div class="mx-auto max-w-2xl reveal">
+      <h2 class="mb-6 font-headline text-3xl font-black uppercase leading-tight tracking-tighter text-white md:text-5xl">
+        Ready to Get Your Business <span class="flame-headline">Found?</span>
+      </h2>
+      <p class="mb-10 text-base leading-relaxed text-neutral-400 md:text-lg">
+        Book a free 30-minute call. We'll look at your current setup, tell you exactly what's
+        holding you back, and show you what a working AI marketing system looks like for your
+        business. No pitch. No pressure.
+      </p>
+      <div class="flex flex-col justify-center gap-4 sm:flex-row sm:gap-6">
+        <a
+          href="/contact"
+          class="afterburner-btn inline-flex items-center justify-center gap-3 bg-primary-container px-10 py-5 font-headline text-base font-black uppercase tracking-tight text-white md:text-lg"
+        >
+          Book a Free Strategy Call
+          <span class="material-symbols-outlined text-xl">arrow_forward</span>
+        </a>
+        <a
+          href={skoolUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center gap-2 border-2 border-white/20 px-10 py-5 font-headline text-base font-black uppercase tracking-tight text-white transition-colors hover:bg-white hover:text-black md:text-lg"
+        >
+          Learn to Do It Yourself — Free
+        </a>
+      </div>
+      <p class="mt-8 text-xs text-neutral-500">
+        No lock-in. No long-term contracts. You own everything we build.
+      </p>
+      <p class="mt-6 font-headline text-sm italic tracking-tight text-neutral-600">
+        Local Service Rocket. The name means something — let's get you off the ground.
+      </p>
+    </div>
+  </div>
+</section>

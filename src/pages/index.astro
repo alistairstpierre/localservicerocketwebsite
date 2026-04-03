@@ -1,0 +1,17 @@
+---
+// Homepage: StoryBrand structure from LSR Master Copy Document v1.
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import HomeContent from "../components/home/HomeContent.astro";
+---
+
+<BaseLayout
+  title="AI Marketing Systems for Local Businesses | Local Service Rocket"
+  description="We build websites, run SEO, and manage ads using AI — getting local businesses to the top of Google faster and cheaper than a traditional agency. See results. Book a free call."
+  mainClass="pt-0"
+>
+  <SiteHeader slot="header" />
+  <HomeContent />
+  <SiteFooter slot="footer" />
+</BaseLayout>

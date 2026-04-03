@@ -1,0 +1,94 @@
+---
+// Shown after playbook email signup: reinforces Skool + done-for-you services (linked from blueprint form redirect or ESP success URL).
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+import { SKOOL_URL } from "../../data/site";
+
+const highlights = [
+  {
+    icon: "school",
+    title: "Free Skool group",
+    body: "Same AI systems we teach and use for clients — websites, local SEO, Google Business Profile, and ads — with room to ask questions and see how others implement.",
+  },
+  {
+    icon: "rocket_launch",
+    title: "Done-for-you services",
+    body: "If you'd rather we run the Strategy → Research → Setup → Management loop for you, we build sites, run SEO, and manage ads for local SMEs across NZ, AU, and the US.",
+  },
+];
+---
+
+<BaseLayout
+  title="You're In — Next Steps | Local Service Rocket"
+  description="Check your inbox for the SEO playbook. Join our free Skool community or explore AI marketing services — websites, SEO, and ads."
+>
+  <SiteHeader slot="header" />
+
+  <main class="relative border-t border-white/5 bg-surface-container-lowest px-6 py-16 md:px-8 md:py-24">
+    <div
+      class="pointer-events-none absolute right-0 top-0 h-[320px] w-[60%] max-w-2xl bg-gradient-to-bl from-primary-container/10 to-transparent blur-3xl"
+    >
+    </div>
+    <div class="relative z-10 mx-auto max-w-3xl text-center">
+      <div
+        class="rocket-shard mb-6 inline-flex items-center gap-2 border-l-2 border-primary bg-surface-container-highest/50 px-4 py-1 backdrop-blur-md"
+      >
+        <span class="material-symbols-outlined text-sm text-primary icon-outline">mark_email_read</span>
+        <span class="font-label text-xs font-bold uppercase tracking-[0.3em] text-on-surface-variant">
+          Check your inbox
+        </span>
+      </div>
+      <h1 class="mb-6 font-headline text-3xl font-black uppercase leading-[0.95] tracking-tighter text-white md:text-5xl">
+        The playbook is <span class="flame-headline">on the way</span>
+      </h1>
+      <p class="mx-auto mb-4 max-w-xl text-lg text-neutral-400">
+        We sent the SEO playbook and AI prompt workflow to the email you just used. If nothing shows up in a minute or
+        two, peek in spam or promotions — then whitelist us so the follow-ups land in the primary tab.
+      </p>
+      <p class="mx-auto mb-12 text-sm text-neutral-500">
+        While it downloads, here's how most people go deeper with us.
+      </p>
+
+      <div class="mb-12 grid gap-6 text-left md:grid-cols-2">
+        {
+          highlights.map((h) => (
+            <div class="mission-panel brutal-border border-l-4 border-l-primary-container/40 p-8">
+              <span class="material-symbols-outlined mb-4 text-3xl text-primary-container icon-outline">{h.icon}</span>
+              <h2 class="mb-3 font-headline text-lg font-bold uppercase tracking-tight text-white">{h.title}</h2>
+              <p class="text-sm leading-relaxed text-neutral-400">{h.body}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="flex flex-col gap-4 sm:flex-row sm:justify-center">
+        <a
+          href={SKOOL_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="afterburner-btn inline-flex items-center justify-center gap-2 bg-primary-container px-8 py-5 font-headline text-sm font-black uppercase tracking-tight text-white md:text-base"
+        >
+          Join the Skool group — free
+          <span class="material-symbols-outlined icon-outline">arrow_outward</span>
+        </a>
+        <a
+          href="/services"
+          class="inline-flex items-center justify-center border-2 border-white/20 px-8 py-5 font-headline text-sm font-black uppercase tracking-tight text-white transition-colors hover:bg-white/10 md:text-base"
+        >
+          See AI services &amp; pricing
+        </a>
+      </div>
+
+      <p class="mt-10 text-sm text-neutral-500">
+        Prefer to talk first?
+        <a class="font-headline font-bold text-secondary-container underline-offset-4 hover:underline" href="/contact">
+          Book a free strategy call
+        </a>
+        — we'll tell you honestly if we're a fit.
+      </p>
+    </div>
+  </main>
+
+  <SiteFooter slot="footer" />
+</BaseLayout>

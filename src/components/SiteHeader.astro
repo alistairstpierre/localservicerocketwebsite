@@ -1,0 +1,108 @@
+---
+import { SKOOL_URL as skoolUrl } from "../data/site";
+
+// Site navigation: /logo-no-text.png on small screens, full /lsr-logo.png from md up.
+const pathname = Astro.url.pathname;
+const links = [
+  { href: "/services", label: "AI Services", icon: null, external: false },
+  { href: "/case-studies", label: "Results", icon: null, external: false },
+  { href: "/about", label: "About", icon: null, external: false },
+  { href: skoolUrl, label: "Learn to Do It Yourself", icon: null, external: true },
+] as const;
+
+const active = (href: string) =>
+  href === "/" ? pathname === "/" : pathname.startsWith(href);
+---
+
+<nav
+  class="fixed top-0 z-50 w-full border-b-2 border-primary-container/30 bg-black/90 backdrop-blur-md"
+>
+  <div class="flex w-full items-center justify-between px-4 py-4 md:px-8">
+    <a
+      href="/"
+      class="flex shrink-0 items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-container"
+    >
+      <span class="sr-only md:hidden">Local Service Rocket</span>
+      <img
+        src="/logo-no-text.png"
+        alt=""
+        class="h-12 w-12 object-contain object-center drop-shadow-[0_0_8px_rgba(255,87,26,0.4)] md:hidden"
+        width="48"
+        height="48"
+        decoding="async"
+        aria-hidden="true"
+      />
+      <img
+        src="/lsr-logo.png"
+        alt="Local Service Rocket"
+        class="hidden h-14 w-auto max-h-16 max-w-[20rem] object-contain object-left drop-shadow-[0_0_10px_rgba(255,87,26,0.35)] md:block"
+        width="320"
+        height="56"
+        decoding="async"
+      />
+    </a>
+    <div class="hidden items-center gap-8 font-headline text-xs font-black uppercase tracking-tighter md:flex md:gap-10">
+      {
+        links.map(({ href, label, external }) => (
+          <a
+            href={href}
+            {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+            class:list={[
+              "transition-colors duration-200 ease-mechanical",
+              !external && active(href)
+                ? "border-b-2 border-primary-container pb-1 text-white"
+                : "text-neutral-500 hover:text-white",
+            ]}
+          >
+            {label}
+          </a>
+        ))
+      }
+    </div>
+    <div class="flex items-center gap-3 md:gap-6">
+      <a
+        href="/contact"
+        class="afterburner-btn hidden bg-primary-container px-6 py-3 font-headline text-xs font-black uppercase tracking-tighter text-white md:inline-flex"
+      >
+        Book a Free Strategy Call
+      </a>
+      <button
+        type="button"
+        class="font-headline text-white md:hidden"
+        id="nav-toggle"
+        aria-label="Open menu"
+      >
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+  </div>
+  <div
+    id="nav-mobile-panel"
+    class="hidden border-t border-white/10 bg-black/95 px-4 py-4 md:hidden"
+  >
+    <div class="flex flex-col gap-3 font-headline text-sm font-black uppercase tracking-tighter">
+      {
+        links.map(({ href, label, external }) => (
+          <a
+            href={href}
+            {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+            class:list={[
+              "border-l-4 py-2 pl-3",
+              !external && active(href)
+                ? "border-primary-container text-white"
+                : "border-transparent text-neutral-400",
+            ]}
+          >
+            {label}
+          </a>
+        ))
+      }
+      <a
+        href="/contact"
+        class="mt-2 bg-primary-container px-4 py-3 text-center font-black text-white"
+      >
+        Book a Free Strategy Call
+      </a>
+    </div>
+  </div>
+</nav>

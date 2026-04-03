@@ -1,0 +1,193 @@
+/* Global styles: Ignition design system utilities (glow, panels, sparks) shared across Astro pages. */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply bg-surface text-on-surface antialiased;
+  }
+  ::selection {
+    @apply bg-primary-container text-white;
+  }
+}
+
+@layer utilities {
+  .material-symbols-outlined {
+    font-variation-settings:
+      "FILL" 1,
+      "wght" 400,
+      "GRAD" 0,
+      "opsz" 24;
+  }
+  .material-symbols-outlined.icon-outline {
+    font-variation-settings:
+      "FILL" 0,
+      "wght" 400,
+      "GRAD" 0,
+      "opsz" 24;
+  }
+}
+
+@layer components {
+  .afterburner-glow {
+    text-shadow:
+      0 0 10px rgba(255, 87, 26, 0.8),
+      0 0 20px rgba(255, 87, 26, 0.4),
+      0 0 40px rgba(255, 219, 60, 0.2);
+  }
+  .panel-texture {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  .exhaust-smoke {
+    background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAP1eP0vxpeG1XL1p8vGulxvDrUfi0xQf5XI_kfrCufJ6aDoYRzQmmQmOwjFZ-Gwe4nWpMvR2C07j2xr1OlBjA6fmXLT2qMhrr0UzNZuxaUnXnN7fSZakzuuq0CNROLU6KZRqdK9Ja5ePfbxlOhbZteNlGWiE9Oub4TPGJSx8qVcESCkPdio2jd9DyYrmkf03vdK2BqYnEDGj99xZybRhInjyl3NBDcC956LoUR96vxCrVsj1bLmaw1d9AWIAzO4PmL9NmRzpDd2tWZ");
+    opacity: 0.05;
+  }
+  .mission-panel {
+    background: linear-gradient(135deg, #151515 0%, #050505 100%);
+    box-shadow:
+      inset 0 0 50px rgba(0, 0, 0, 1),
+      0 10px 30px rgba(0, 0, 0, 0.5);
+  }
+  .grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, #ff571a 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.1;
+    pointer-events: none;
+  }
+  .ignition-glow {
+    box-shadow: 0 0 20px rgba(255, 87, 26, 0.4);
+  }
+  .brutal-border {
+    border: 2px solid #2b2a29;
+    position: relative;
+  }
+  .brutal-border::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #ff571a;
+    border-left: 2px solid #ff571a;
+  }
+  .brutal-border::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    width: 10px;
+    height: 10px;
+    border-bottom: 2px solid #ff571a;
+    border-right: 2px solid #ff571a;
+  }
+  .thrust-gradient,
+  .rocket-gradient {
+    background: linear-gradient(45deg, #ff571a 0%, #ff553b 100%);
+  }
+  .shard-clip,
+  .shard-cut,
+  .asymmetric-cut {
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 95% 100%, 0 100%);
+  }
+  .rocket-shard {
+    clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
+  }
+  .noise-overlay {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.05;
+  }
+  .telemetry-value {
+    color: #ffdb3c;
+    text-shadow: 0 0 15px rgba(255, 219, 60, 0.6);
+  }
+}
+
+@keyframes afterburner-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(255, 87, 26, 0.4);
+    border-color: rgba(255, 87, 26, 0.5);
+  }
+  50% {
+    box-shadow:
+      0 0 50px rgba(255, 87, 26, 0.9),
+      0 0 20px rgba(255, 255, 255, 0.3);
+    border-color: #fff;
+  }
+}
+
+.afterburner-btn {
+  animation: afterburner-pulse 1.5s infinite ease-in-out;
+  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.afterburner-btn:hover {
+  transform: scale(1.05) translateY(-2px);
+}
+
+@keyframes flame-text {
+  0%,
+  100% {
+    color: #fff;
+    text-shadow:
+      0 0 20px #ff571a,
+      0 0 40px #5a0500;
+  }
+  50% {
+    color: #ffdb3c;
+    text-shadow:
+      0 0 30px #ff571a,
+      0 0 60px #ff571a;
+  }
+}
+
+.flame-headline {
+  animation: flame-text 2s infinite alternate;
+}
+
+@keyframes spark-rise {
+  0% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(var(--tx, 0px)) scale(0);
+    opacity: 0;
+  }
+}
+
+.spark {
+  position: absolute;
+  bottom: -10px;
+  width: 3px;
+  height: 3px;
+  background: #ff571a;
+  filter: blur(1px);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.bg-embers {
+  background-image: radial-gradient(circle at 50% 100%, rgba(255, 87, 26, 0.2) 0%, transparent 70%);
+}

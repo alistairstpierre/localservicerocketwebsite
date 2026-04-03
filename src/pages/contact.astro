@@ -1,0 +1,198 @@
+---
+// Contact: free strategy call + enquiry form. Wire form action to your endpoint or embed Calendly via STRATEGY_CALL_BOOKING_URL in src/data/site.ts.
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import { SKOOL_URL, STRATEGY_CALL_BOOKING_URL } from "../data/site";
+
+const mapPlaceholder =
+  "https://placehold.co/960x540/141414/ff571a/png?text=NZ+%C2%B7+AU+%C2%B7+USA&font=roboto";
+---
+
+<BaseLayout
+  title="Book a Free Strategy Call | Local Service Rocket"
+  description="Free 30-minute call. No credit card. No pitch. Tell us what's working and what isn't — we'll map the fastest path to page 1 for your business."
+>
+  <SiteHeader slot="header" />
+
+  <div class="mx-auto max-w-7xl px-6 pb-24 pt-8 md:px-12">
+    <header class="relative mb-12 md:mb-16">
+      <div class="pointer-events-none absolute -left-10 -top-10 h-40 w-40 bg-primary-container/10 blur-[100px]"></div>
+      <h1
+        class="max-w-4xl font-headline text-4xl font-black uppercase leading-[0.95] tracking-tighter text-white md:text-6xl"
+      >
+        Book a <span class="flame-headline">Free Strategy Call</span>
+      </h1>
+      <p
+        class="mt-6 max-w-2xl border-l-4 border-primary-container pl-6 text-lg text-neutral-400"
+      >
+        30 minutes. No credit card. No pitch. We'll look at your setup, tell you what's holding you
+        back, and outline what a working AI marketing system looks like for you.
+      </p>
+    </header>
+
+    {
+      STRATEGY_CALL_BOOKING_URL && (
+        <div class="mb-10 border border-secondary-container/40 bg-surface-container p-6">
+          <p class="mb-3 font-headline text-xs font-black uppercase tracking-[0.25em] text-secondary-container">
+            Prefer to book a time now?
+          </p>
+          <a
+            href={STRATEGY_CALL_BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 font-headline text-sm font-black uppercase text-white underline decoration-primary-container underline-offset-4 hover:text-primary-container"
+          >
+            Open scheduling
+            <span class="material-symbols-outlined text-base icon-outline">arrow_outward</span>
+          </a>
+        </div>
+      )
+    }
+
+    <div class="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-10">
+      <section
+        class="relative col-span-1 overflow-hidden bg-surface-container-low p-8 shard-clip lg:col-span-7"
+      >
+        <h2 class="mb-6 flex items-center gap-3 font-headline text-xl font-bold uppercase tracking-tight text-white">
+          <span class="material-symbols-outlined text-primary-container">edit_note</span>
+          Send a message
+        </h2>
+        <form class="space-y-6" method="post" action="#">
+          <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <div class="space-y-2">
+              <label class="font-label text-xs uppercase tracking-widest text-primary-fixed-dim">
+                Name
+              </label>
+              <input
+                class="w-full border-none bg-surface-container-highest py-3 text-on-surface placeholder:text-neutral-600 focus:border-b-2 focus:border-secondary-container focus:ring-0"
+                placeholder="Your name"
+                type="text"
+                name="name"
+                required
+              />
+            </div>
+            <div class="space-y-2">
+              <label class="font-label text-xs uppercase tracking-widest text-primary-fixed-dim">
+                Email
+              </label>
+              <input
+                class="w-full border-none bg-surface-container-highest py-3 text-on-surface placeholder:text-neutral-600 focus:border-b-2 focus:border-secondary-container focus:ring-0"
+                placeholder="you@company.com"
+                type="email"
+                name="email"
+                required
+              />
+            </div>
+          </div>
+          <div class="space-y-2">
+            <label class="font-label text-xs uppercase tracking-widest text-primary-fixed-dim">
+              I'm interested in
+            </label>
+            <select
+              class="w-full border-none bg-surface-container-highest py-3 text-on-surface focus:border-b-2 focus:border-secondary-container focus:ring-0"
+              name="interest"
+            >
+              <option>Done-for-you — website / SEO / ads</option>
+              <option>Done-for-you — not sure yet</option>
+              <option>Learn to do it myself (Skool)</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="space-y-2">
+            <label class="font-label text-xs uppercase tracking-widest text-primary-fixed-dim">
+              What should we know?
+            </label>
+            <textarea
+              class="w-full border-none bg-surface-container-highest py-3 text-on-surface placeholder:text-neutral-600 focus:border-b-2 focus:border-secondary-container focus:ring-0"
+              placeholder="Your market, what's broken, what you want to see in the next 90 days..."
+              rows="5"
+              name="message"></textarea>
+          </div>
+          <button
+            class="flex w-full items-center justify-center gap-3 bg-gradient-to-r from-primary-container to-tertiary-container py-4 font-headline text-base font-black uppercase tracking-widest text-on-primary-container ignition-glow transition-all hover:brightness-110 active:scale-[0.99]"
+            type="submit"
+          >
+            Send message
+            <span class="material-symbols-outlined icon-outline">send</span>
+          </button>
+          <p class="text-xs text-neutral-500">
+            This form posts to <code class="text-neutral-400">#</code> until you connect Formspree, your
+            CRM, or a serverless handler.
+          </p>
+        </form>
+      </section>
+
+      <div class="col-span-1 space-y-6 lg:col-span-5">
+        <div class="border-l-4 border-secondary-container bg-surface-container p-6 md:p-8">
+          <h3 class="mb-2 font-headline text-xs font-black uppercase tracking-[0.2em] text-secondary-container">
+            What happens next
+          </h3>
+          <ul class="space-y-3 text-sm text-neutral-400">
+            <li class="flex gap-2">
+              <span class="material-symbols-outlined text-base text-primary-container icon-outline">
+                check
+              </span>
+              We read what you send and reply with clear next steps.
+            </li>
+            <li class="flex gap-2">
+              <span class="material-symbols-outlined text-base text-primary-container icon-outline">
+                check
+              </span>
+              If we're a fit, we'll book a call or point you to Skool — no arm-twisting.
+            </li>
+            <li class="flex gap-2">
+              <span class="material-symbols-outlined text-base text-primary-container icon-outline">
+                check
+              </span>
+              We work remotely across NZ, AU, and USA — same stack everywhere.
+            </li>
+          </ul>
+        </div>
+
+        <div class="overflow-hidden bg-surface-container-low">
+          <div class="relative h-56">
+            <img
+              class="h-full w-full object-cover opacity-80"
+              alt="Regions served: New Zealand, Australia, United States"
+              src={mapPlaceholder}
+              width="960"
+              height="540"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent"></div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-headline font-bold uppercase tracking-tight text-primary">Where we work</h3>
+            <p class="mt-2 text-sm text-on-surface-variant">
+              New Zealand · Australia · United States — partnered with 10 SMEs today and applying what we
+              learn back into the playbooks.
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-surface-container-highest p-6">
+          <h4 class="font-label text-[10px] uppercase tracking-[0.3em] text-neutral-500">Email</h4>
+          <a
+            href="mailto:hello@localservicerocket.com"
+            class="mt-1 inline-flex items-center gap-2 font-headline text-lg font-bold text-primary-fixed-dim hover:text-primary-container"
+          >
+            hello@localservicerocket.com
+            <span class="material-symbols-outlined text-xl icon-outline">alternate_email</span>
+          </a>
+        </div>
+
+        <a
+          href={SKOOL_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center justify-between border border-outline-variant bg-surface-container px-6 py-4 transition-colors hover:border-primary-container"
+        >
+          <span class="font-headline text-sm font-black uppercase text-white">Learn free on Skool</span>
+          <span class="material-symbols-outlined text-primary-container icon-outline">arrow_outward</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <SiteFooter slot="footer" />
+</BaseLayout>

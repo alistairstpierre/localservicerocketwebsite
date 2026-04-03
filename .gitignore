@@ -10,7 +10,13 @@ Thumbs.db
 .env.local
 .env.*.local
 
-# Dependencies / build (uncomment when applicable)
-# node_modules/
-# dist/
-# .next/
+# Dependencies / build
+node_modules/
+dist/
+.astro/
+
+# Framework
+.next/
+
+# Stitch / design exports — local reference only (see README); not needed for production build
+Stitch-Files/

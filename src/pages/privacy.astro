@@ -1,0 +1,51 @@
+---
+// Privacy overview (footer + general). Not legal advice — have counsel review for your jurisdictions.
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+---
+
+<BaseLayout
+  title="Privacy | Local Service Rocket"
+  description="How Local Service Rocket handles email signups, the playbook lead magnet, and related data."
+>
+  <SiteHeader slot="header" />
+
+  <main class="border-t border-white/5 bg-surface-container-lowest px-6 py-16 md:px-8 md:py-24">
+    <div class="mx-auto max-w-3xl">
+      <h1 class="mb-6 font-headline text-3xl font-black uppercase tracking-tighter text-white md:text-4xl">
+        Privacy
+      </h1>
+      <div class="space-y-6 text-sm leading-relaxed text-neutral-400">
+        <p>
+          <strong class="text-neutral-200">Email and marketing.</strong> When you sign up (for example for the SEO
+          playbook), we collect your email through our provider (e.g. Kit). You typically confirm by email before you are
+          fully subscribed. After that we may send occasional
+          <strong class="text-neutral-300">AI marketing tips and lessons</strong>. Sometimes we mention our services too.
+        </p>
+        <p>
+          <strong class="text-neutral-200">Unsubscribe.</strong> Click the link in any email to opt out, or
+          <a class="font-semibold text-secondary-container underline-offset-2 hover:underline" href="/contact"
+            >contact us</a
+          >.
+        </p>
+        <p>
+          <strong class="text-neutral-200">Service providers.</strong> We may use trusted email and form providers (for
+          example Kit or similar) to deliver messages and manage subscriptions. Their processing is governed by their
+          terms and privacy policies as well as our instructions.
+        </p>
+        <p>
+          <strong class="text-neutral-200">This site.</strong> This marketing site is largely static. We do not run
+          invasive tracking beyond what is typical for hosting, forms, and email tools you connect.
+        </p>
+        <p class="text-xs text-neutral-500">
+          Last updated {new Date().toLocaleDateString("en-NZ", { year: "numeric", month: "long", day: "numeric" })}. This
+          page is a summary for transparency; it is not legal advice. Adapt with qualified counsel for your markets
+          (e.g. NZ, AU, US).
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <SiteFooter slot="footer" />
+</BaseLayout>
