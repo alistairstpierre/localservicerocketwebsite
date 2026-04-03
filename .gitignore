@@ -1,0 +1,16 @@
+# Ignores common local-only and generated files for this repo; expand when build tooling is added.
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.log
+
+# Env / secrets (add patterns as needed)
+.env
+.env.local
+.env.*.local
+
+# Dependencies / build (uncomment when applicable)
+# node_modules/
+# dist/
+# .next/
