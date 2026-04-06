@@ -1,7 +1,9 @@
 ---
 // Root HTML shell: fonts, global CSS, optional full-page spark layer for case studies.
 // Technical SEO: canonical, Open Graph, Twitter Card, optional JSON-LD (see docs/SITE-STRUCTURE-AND-SEO-GUIDE.md).
+// Vercel Web Analytics: `<Analytics />` from `@vercel/analytics/astro` (enable Analytics on the Vercel project after deploy).
 import "../styles/global.css";
+import Analytics from "@vercel/analytics/astro";
 import {
   BUSINESS_DESCRIPTION,
   DEFAULT_OG_IMAGE_PATH,
@@ -72,6 +74,7 @@ const ogImage = absoluteUrl(ogImagePath);
     />
     <title>{title}</title>
     {jsonLd && <script type="application/ld+json" set:html={jsonLd} />}
+    <Analytics />
   </head>
   <body class="overflow-x-hidden font-body selection:bg-primary-container selection:text-white">
     {

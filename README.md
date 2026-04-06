@@ -19,13 +19,14 @@ npm run preview
 1. Push this repo to GitHub and import the project in Vercel.
 2. Use the default build command `npm run build` and output directory `dist`.
 3. Set **Site** in `astro.config.mjs` to your production URL (for accurate absolute links / SEO).
+4. In the Vercel project, open **Analytics** and click **Enable** so [Web Analytics](https://vercel.com/docs/analytics/quickstart) collects traffic (the `@vercel/analytics/astro` component is already in `BaseLayout.astro`).
 
 ## Repository structure
 
 | Path | Purpose |
 |------|---------|
 | `README.md` | This file: project intro and layout |
-| `package.json` | Scripts and dependencies (Astro + Tailwind) |
+| `package.json` | Scripts and dependencies (Astro + Tailwind + `@vercel/analytics`) |
 | `astro.config.mjs` | Static output, Tailwind, production `site` URL, local sitemap integration |
 | `tailwind.config.mjs` | Ignition design tokens (colors, fonts, 0px radius) |
 | `public/favicon.svg` | Favicon |
@@ -44,7 +45,7 @@ npm run preview
 | `scripts/optimize-case-study-trucks.mjs` | `dryDuckTruck.jpg` + `coastalCurrentTruck.png` → `dry-duck-truck.webp` / `coastal-current-truck.webp` for home + `/case-studies` |
 | `scripts/optimize-public-rasters.mjs` | Batch: services hero + logos → WebP (`node scripts/optimize-public-rasters.mjs`, optional `--delete-source`) |
 | `scripts/astro-sitemap-integration.mjs` | Post-build `sitemap.xml` in `dist/` (replaces `@astrojs/sitemap` if Node hits ESM/CJS errors) |
-| `src/layouts/BaseLayout.astro` | HTML shell, fonts, global CSS, optional `pageSparks` layer |
+| `src/layouts/BaseLayout.astro` | HTML shell, fonts, global CSS, Vercel `<Analytics />`, optional `pageSparks` layer |
 | `src/components/SiteHeader.astro` | Primary navigation |
 | `src/components/SiteFooter.astro` | Footer links |
 | `src/components/home/HomeContent.astro` | Homepage: StoryBrand sections + master copy |
